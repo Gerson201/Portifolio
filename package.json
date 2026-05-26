@@ -9,7 +9,8 @@
     "lint": "next lint",
     "artigos:gerar": "py scripts/convert_articles.py",
     "plantuml:render": "powershell -ExecutionPolicy Bypass -File scripts/plantuml_render.ps1",
-    "build": "npm run artigos:gerar && npm run plantuml:render && next build"
+    "build": "npm run artigos:gerar && npm run plantuml:render && next build",
+    "build:ci": "next build"
   },
   "dependencies": {
     "@mdx-js/mdx": "^3.0.1",
