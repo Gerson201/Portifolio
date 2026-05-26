@@ -1,0 +1,86 @@
+---
+title: "LLM RAG para Engenharia Eletrica"
+date: "2026-01-28"
+area: "software"
+type: "project"
+tags: ["rag", "llm", "engenharia", "offline", "documentos", "auditoria", "langchain", "faiss"]
+stack: ["Python", "FastAPI", "Streamlit", "Ollama", "LangChain", "FAISS", "Sentence-Transformers", "Tesseract OCR", "Docker"]
+status: "public-demo"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/rag-eletrica"
+demo: "https://demo.example.com/rag"
+summary: "Sistema RAG offline com 43 modulos para consulta inteligente de normas e documentacao eletrica, analise de projetos e relatorios com citacao de fontes."
+---
+
+## Visao Geral
+
+Sistema de **Retrieval-Augmented Generation (RAG)** especializado em engenharia eletrica, com capacidade de operacao **totalmente offline**. Permite consultar normas tecnicas, manuais e documentacao via chat com linguagem natural, sempre citando as fontes originais. Com **43 modulos Python**, o sistema abrange indexacao, busca semantica, geracao de respostas e analise automatizada de documentos tecnicos.
+
+## Arquitetura RAG
+
+### Indexacao e Embeddings
+- Processamento de documentos em multiplos formatos: **PDF, DOC, DOCX, TXT**.
+- **OCR com Tesseract** para documentos escaneados ou com imagens de texto.
+- Geracao de embeddings com **Sentence-Transformers** (modelos leves para edge).
+- Chunking inteligente com overlap para manter contexto entre fragmentos.
+
+### Busca Semantica — FAISS
+- **FAISS** (Facebook AI Similarity Search) como vector store de alta performance.
+- Busca por similaridade cosseno em milhares de chunks em milissegundos.
+- Re-ranking de resultados por relevancia e contexto da pergunta.
+
+### Geracao de Respostas — Ollama
+- LLM local via **Ollama** com modelo **Mistral 7B** para operacao offline.
+- Prompts especializados com **20+ contextos de engenharia eletrica**.
+- Respostas sempre acompanhadas de **citacoes das fontes** (documento, pagina, trecho).
+- Opcao de integracao com modelos online (OpenAI, Anthropic) para maior capacidade.
+
+## Interface e API
+
+### API REST — FastAPI
+- Backend **FastAPI** com endpoints para: upload de documentos, consulta, analise e gerenciamento de indices.
+- Documentacao automatica OpenAPI/Swagger.
+- Processamento assincrono de uploads e indexacao.
+
+### Interface Web — Streamlit
+- **10 paginas** na interface Streamlit para diferentes funcionalidades:
+  - Chat com documentos (consulta por linguagem natural).
+  - Upload e gerenciamento de documentos.
+  - Analise de relatorios tecnicos.
+  - Analise de projetos eletricos.
+  - Analise de qualidade de codigo.
+  - Configuracoes e status do sistema.
+
+## Funcionalidades de Analise
+
+### Analise de Relatorios
+- Identificacao automatica de **riscos** e nao-conformidades.
+- Verificacao de **requisitos normativos** (NBR, IEC, ANSI).
+- Destaque de pontos criticos e recomendacoes.
+
+### Analise de Projetos
+- Avaliacao de conformidade com normas tecnicas.
+- Checklist automatico de requisitos obrigatorios.
+- Sugestoes de melhoria baseadas na base de conhecimento.
+
+### Contextos Especializados (20+)
+- Instalacoes eletricas de baixa e media tensao.
+- Sistemas de protecao e coordenacao.
+- Qualidade de energia e harmonicos.
+- SPDA e aterramento.
+- Subestacoes e linhas de transmissao.
+- Eficiencia energetica e sustentabilidade.
+
+## Deploy
+
+- **Docker Compose** com servicos isolados: API, Streamlit, Ollama.
+- Funciona em maquinas sem acesso a internet (ideal para ambientes industriais).
+- Configuracao via variaveis de ambiente para adaptacao a diferentes cenarios.
+
+## Diferenciais
+
+- **Offline-first**: Opera sem internet, essencial para ambientes industriais e de campo.
+- **Citacao de fontes**: Toda resposta referencia o documento e trecho original.
+- **Especializado**: Prompts e contextos otimizados para engenharia eletrica, nao generico.
+- **Modular**: 43 modulos com responsabilidades bem definidas, facil de estender.

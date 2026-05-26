@@ -1,0 +1,75 @@
+---
+title: "ScrapBid — Plataforma de Gestao Empresarial e Licitacoes"
+date: "2026-03-10"
+area: "software"
+type: "project"
+tags: ["electron", "desktop", "licitacoes", "erp", "scraping", "fastapi", "react", "b2b"]
+stack: ["Electron", "React", "TypeScript", "FastAPI", "SQLite", "Alembic", "Python", "Vite", "Docker"]
+status: "private-core"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/scrapbid"
+summary: "Plataforma desktop all-in-one para empresas B2B/B2G: inteligencia de precos em licitacoes publicas, integracao com ERP Bling, gestao comercial e calculo de lances."
+---
+
+## Visao Geral
+
+O **ScrapBid** nasceu como uma ferramenta de scraping de precos para licitacoes publicas e evoluiu para uma **plataforma integrada de gestao empresarial** voltada a empresas que atuam em vendas B2B/B2G, projetos de engenharia e licitacoes publicas.
+
+A aplicacao e um **app desktop** (Electron + React) com backend local (FastAPI + SQLite), eliminando dependencia de cloud para operacoes senssiveis e garantindo performance mesmo offline.
+
+## Arquitetura
+
+### Frontend — Electron + React + TypeScript
+- App desktop multiplataforma com **Electron**, empacotado como instalador nativo.
+- Interface moderna com **React + TypeScript** e build via **Vite**.
+- Comunicacao com o backend via API REST local (localhost).
+- UX focada em fluxos operacionais reais de empresas de engenharia.
+
+### Backend — FastAPI + Python
+- API REST com **FastAPI** para logica de negocio, scraping e integracao.
+- **SQLite** como banco de dados local, com migrations gerenciadas pelo **Alembic**.
+- Scrapers para o **Portal Nacional de Contratacoes Publicas (PNCP)** — coleta automatica de editais e precos de referencia.
+- Modulo de scraping para o sistema **SAP da Copasa** via Selenium.
+
+### Integracao ERP
+- Sincronizacao bidirecional com **Bling ERP** via API oficial.
+- Importacao/exportacao de produtos, pedidos e clientes.
+- Conciliacao de estoque e preco entre a plataforma e o ERP.
+
+## Funcionalidades Principais
+
+### Inteligencia de Licitacoes
+- Coleta automatica de editais do PNCP com filtros por categoria e regiao.
+- Analise de precos de referencia do governo para calcular margem de competitividade.
+- Historico de participacoes e resultados por cliente.
+- **Calculadora de lances** com simulacao de margem e imposto.
+
+### Gestao Comercial B2B
+- CRM simplificado para gestao de clientes e oportunidades.
+- Pipeline de vendas com acompanhamento de propostas.
+- Gerador de orcamentos com PDF automatico.
+- Integracao fiscal para calculo de impostos em projetos de engenharia.
+
+### Dados e Relatorios
+- Dashboard de desempenho comercial com graficos de conversao.
+- Relatorios de licitacoes ganhas/perdidas com analise de preco.
+- Exportacao para Excel/PDF para prestacao de contas.
+
+## Diferenciais
+
+- **Desktop-first**: Operacao offline, sem latencia de rede, dados locais seguros.
+- **Especifico para engenharia**: Fluxos adaptados para empresas de projetos e servicos.
+- **Integracao PNCP**: Acesso direto ao banco de licitacoes publicas sem intermediarios.
+- **Versionamento rigoroso**: Changelog completo desde v0.1.0 com breaking changes documentados.
+
+## Contexto
+
+Desenvolvido para atender necessidades reais de empresas de engenharia que participam de licitacoes publicas e precisam de inteligencia de precos para elaborar propostas competitivas.
+
+## Decisoes Tecnicas
+
+- **Electron** escolhido para garantir acesso a sistema de arquivos local e operacao offline.
+- **SQLite + Alembic** para banco local com migrations controladas — sem dependencia de servidor de banco de dados.
+- **FastAPI** para backend de alta performance com tipagem forte via Pydantic.
+- Separacao clara entre frontend (porta Electron) e backend (FastAPI em processo separado) para facilitar testes e evolucao independente.

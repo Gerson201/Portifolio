@@ -1,0 +1,68 @@
+﻿@startuml Sistema_Gerson
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **Sistema_Gerson**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component "cursor-browser-tools-mcp" as cursor_browser_tools_mcp
+  component "pee-platform" as pee_platform
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [getDefaultServerPort] as code_1
+  component [getDefaultServerHost] as code_2
+  component [gtag] as code_3
+  component [Client] as code_4
+  component [SseError] as code_5
+  component [SSEClientTransport] as code_6
+  component [getDefaultEnvironment] as code_7
+  component [StdioClientTransport] as code_8
+  component [isElectron] as code_9
+  component [WebSocketClientTransport] as code_10
+  component [Completable] as code_11
+  component [completable] as code_12
+  component [processCreateParams] as code_13
+  component [Server] as code_14
+  component [McpServer] as code_15
+  component [ResourceTemplate] as code_16
+  component [promptArgumentsFromSchema] as code_17
+  component [createCompletionResult] as code_18
+  component [SSEServerTransport] as code_19
+  component [StdioServerTransport] as code_20
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+cursor_browser_tools_mcp --> pee_platform
+main --> code
+footer \\n<size:10>Sistema_Gerson - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

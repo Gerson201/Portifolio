@@ -1,0 +1,75 @@
+---
+title: "Plataforma SaaS Multi-Tenant E-commerce"
+date: "2026-02-06"
+area: "software"
+type: "project"
+tags: ["saas", "multi-tenant", "ecommerce", "fullstack", "api", "editor-visual", "pagamentos"]
+stack: ["NestJS", "Next.js 14", "PostgreSQL", "Prisma", "TypeScript", "Zustand", "Turborepo", "JWT", "Docker"]
+status: "private-core"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/SaaS"
+summary: "Plataforma SaaS completa de e-commerce multi-tenant com editor visual drag-and-drop, RBAC, multiplos gateways de pagamento e monorepo moderno."
+---
+
+## Visao Geral
+
+Plataforma de e-commerce **Software as a Service** que permite a multiplos lojistas criarem e gerenciarem suas lojas online de forma independente. Cada tenant possui isolamento completo de dados, customizacao visual via editor drag-and-drop e integracao com multiplos gateways de pagamento.
+
+O projeto utiliza arquitetura **monorepo com Turborepo e pnpm**, separando backend, frontend e pacotes compartilhados com build otimizado e cache inteligente.
+
+## Arquitetura
+
+### Backend — NestJS
+- API RESTful com **NestJS** (porta 3333), seguindo arquitetura modular.
+- ORM **Prisma** com PostgreSQL para persistencia de dados multi-tenant.
+- Autenticacao **JWT** com refresh tokens e sessoes seguras.
+- **RBAC** (Role-Based Access Control) com 3 niveis: Admin, Gestor e Operador.
+- Middleware de isolamento de tenant por subdominio ou header.
+- Documentacao de API auto-gerada com Swagger/OpenAPI.
+
+### Frontend — Next.js 14
+- Aplicacao **Next.js 14** (porta 3000) com App Router e Server Components.
+- Gerenciamento de estado global com **Zustand** (leve e performatico).
+- Renderizacao hibrida: SSR para SEO, CSR para interatividade.
+- Design responsivo e acessivel.
+
+### Monorepo
+- Gerenciado com **Turborepo** para builds incrementais e cache distribuido.
+- **pnpm** workspaces para gerenciamento eficiente de dependencias.
+- Pacotes compartilhados (types, utils, configs) reutilizados entre apps.
+
+## Editor Visual
+
+- Interface **drag-and-drop** construida com `@dnd-kit` para montagem de paginas.
+- Componentes pre-construidos: Hero, Grid de Produtos, Banner, Carousel, Footer, etc.
+- Preview em tempo real das alteracoes.
+- Salvamento automatico e versionamento de layouts.
+- Sem necessidade de conhecimento tecnico por parte do lojista.
+
+## Gateways de Pagamento
+
+Integracao com **4 gateways** para maxima flexibilidade:
+
+- **Pagar.me**: Cartao de credito, boleto e Pix.
+- **Stripe**: Pagamentos internacionais com cartao.
+- **Mercado Pago**: Cartao, boleto, Pix e checkout transparente.
+- **Asaas**: Cobranca recorrente, boleto e Pix com split de pagamento.
+
+Cada tenant pode configurar seu proprio gateway preferido com chaves independentes.
+
+## Multi-Tenancy
+
+- Isolamento completo de dados por tenant no PostgreSQL via Prisma.
+- Customizacao de tema, logo, dominio e configuracoes por loja.
+- Planos e limites configuráveis por tenant (produtos, pedidos, storage).
+- Painel administrativo master para gestao de todos os tenants.
+
+## Documentacao
+
+O projeto conta com mais de **18 documentos de arquitetura** cobrindo:
+- Modelo de dados e migracoes.
+- Fluxos de autenticacao e autorizacao.
+- Integracao com gateways de pagamento.
+- Deploy e configuracao de ambientes.
+- Guias de contribuicao e padroes de codigo.

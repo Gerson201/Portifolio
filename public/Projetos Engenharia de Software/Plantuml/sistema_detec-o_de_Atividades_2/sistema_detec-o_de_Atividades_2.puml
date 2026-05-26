@@ -1,0 +1,53 @@
+﻿@startuml sistema_detec-o_de_Atividades_2
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **sistema_detec-o_de_Atividades_2**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component [models] as models
+  component [data] as data
+  component [scripts] as scripts
+  component [tests] as tests
+  component [config] as config
+  component [configs] as configs
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [Classes/Funcoes nao detectadas] as code_1
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+data --> models
+main --> code
+footer \\n<size:10>sistema_detec-o_de_Atividades_2 - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

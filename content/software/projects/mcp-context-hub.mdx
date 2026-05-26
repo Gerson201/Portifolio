@@ -1,0 +1,86 @@
+---
+title: "MCP Context Hub — Servidor MCP para Contexto Multi-Projeto"
+date: "2026-04-15"
+area: "software"
+type: "project"
+tags: ["mcp", "llm", "typescript", "developer-tools", "ai", "agent", "context", "git"]
+stack: ["TypeScript", "Node.js", "Model Context Protocol", "ripgrep", "Git", "Electron (installer)"]
+status: "public-demo"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/mcp-context-hub"
+summary: "Servidor MCP local em TypeScript que expoe ferramentas para agentes de IA consultarem codigo, documentacao e historico Git de multiplos repositorios com seguranca — sem vazar segredos."
+---
+
+## Visao Geral
+
+O **MCP Context Hub** e um servidor [Model Context Protocol (MCP)](https://modelcontextprotocol.io) local que resolve um problema real no desenvolvimento assistido por IA: **agentes como Claude nao tem acesso seguro ao contexto de multiplos projetos simultaneamente**.
+
+O servidor expoe ferramentas que permitem ao agente buscar codigo, ler documentacao e consultar historico Git de repositorios configurados — tudo localmente, sem enviar segredos ou codigo proprietario para servicos externos.
+
+## Por que isso importa
+
+Ao trabalhar com multiplos repositorios, o agente precisa de contexto de varios projetos para tomar decisoes informadas. As solucoes existentes ou enviam tudo para a nuvem (risco de vazamento) ou limitam o contexto a um repositorio por vez. O MCP Context Hub resolve ambos os problemas.
+
+## Arquitetura
+
+### Protocolo — Model Context Protocol
+- Implementa o **MCP** (protocolo aberto da Anthropic para integracao de ferramentas em LLMs).
+- Compativel com **Claude Desktop**, **Claude Code**, **Cursor** e qualquer cliente MCP.
+- Comunicacao via **stdio** (processo local, sem porta de rede exposta).
+
+### Runtime — Node.js + TypeScript
+- Servidor escrito em **TypeScript** com tipos estritos para todas as ferramentas.
+- Build otimizado com saida em `dist/` para distribuicao.
+- **ripgrep** como motor de busca de texto (10x mais rapido que grep nativo), com fallback em Node para ambientes sem rg instalado.
+
+### Instalador — Windows
+- Empacotado como instalador `.exe` para Windows (sem dependencia de Node instalado).
+- Node.js bundled no proprio instalador para deploy em maquinas sem ambiente de dev.
+- Script de desinstalacao incluso.
+
+## Ferramentas Expostas ao Agente
+
+### `read_file`
+Le o conteudo de um arquivo de qualquer projeto configurado, respeitando os globs de inclusao/exclusao definidos em `projects.json`.
+
+### `search_text`
+Busca texto ou regex em todos os arquivos dos projetos configurados usando ripgrep. Retorna arquivo, linha e trecho com contexto.
+
+### `list_files`
+Lista arquivos de um projeto aplicando os filtros de glob — permite ao agente descobrir a estrutura do projeto sem ler cada arquivo.
+
+### `recent_changes`
+Consulta o historico Git do projeto (commits recentes, arquivos modificados, diffs) para dar ao agente consciencia temporal do que mudou.
+
+### `read_docs`
+Le arquivos de documentacao (README, CHANGELOG, ADRs) de forma prioritaria, otimizado para respostas rapidas sobre o projeto.
+
+## Configuracao
+
+Projetos sao definidos em `projects.json`:
+
+```json
+[
+  {
+    "name": "meu-backend",
+    "rootPath": "C:/projetos/backend",
+    "includeGlobs": ["**/*.ts", "**/*.py", "**/*.md"],
+    "excludeGlobs": ["**/node_modules/**", "**/.env*"]
+  }
+]
+```
+
+Os globs de exclusao garantem que **segredos e arquivos sensiveis nunca sejam lidos** pelo agente.
+
+## Diferenciais
+
+- **100% local**: Nenhum dado sai da maquina. Codigo proprietario e credenciais ficam seguros.
+- **Multi-projeto**: Contexto de N repositorios simultaneamente, configuravel por workspace.
+- **Zero vazamento de segredos**: Globs de exclusao bloqueiam `.env`, chaves e certificados por padrao.
+- **Distribuicao simplificada**: Instalador `.exe` para Windows — funciona em maquinas sem Node.
+- **Compatibilidade ampla**: Qualquer cliente MCP (Claude, Cursor, Windsurf) pode usar.
+
+## Contexto e Motivacao
+
+Criado para uso proprio durante o desenvolvimento de multiplos projetos em paralelo, onde a necessidade de dar contexto completo ao agente em cada sessao era um gargalo real de produtividade.

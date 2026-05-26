@@ -1,0 +1,69 @@
+---
+title: "RGA Engenharia — Site Institucional e Sistema de Gestao"
+date: "2026-01-15"
+area: "eletrica"
+type: "project"
+tags: ["site-institucional", "sistema-gestao", "bling", "api", "django", "angular", "aws", "cliente"]
+stack: ["Django", "Angular", "AWS", "PostgreSQL", "Bling API", "Docker", "REST API"]
+status: "client-sanitized"
+featured: true
+image: "/images/Home/engenharia_eletrica.jpg"
+demo: "https://rgaengenharia.com"
+summary: "Site institucional em producao e sistema de gestao empresarial para empresa de engenharia com 15+ anos de mercado. Django + Angular + AWS com integracao ao ERP Bling e sincronizacao de produtos WEG."
+---
+
+## Visao Geral
+
+Conjunto de solucoes desenvolvidas para a **RGA Engenharia**, empresa lider em automacao industrial, engenharia eletrica e mecanica em Montes Claros — MG, com atuacao em todo o Norte de Minas e Bahia.
+
+O projeto inclui dois entregaveis principais: o **site institucional** em producao em [rgaengenharia.com](https://rgaengenharia.com) e o **Sistema de Gestao RGA (SGA)** — plataforma interna de gestao empresarial integrada ao ERP Bling.
+
+## Site Institucional
+
+### Objetivo
+Presenca digital profissional para captacao de leads em automacao industrial, engenharia eletrica, mecanica e projetos fotovoltaicos no Norte de Minas e Bahia.
+
+### Conteudo
+- Paginas de servicos por area de atuacao (Eletrica, Mecanica, Automacao Industrial).
+- Cobertura geografica: Montes Claros, Norte de MG, Bahia e atuacao nacional.
+- Formulario de contato e orcamento com envio por email.
+- Pagina de blog para conteudo tecnico e SEO.
+- Numeros de credibilidade: 15+ anos, 1800+ projetos, 50+ clientes.
+
+## Sistema de Gestao RGA (SGA)
+
+### Arquitetura
+
+**Backend — Django 5.2 + DRF**
+- API REST com **Django REST Framework** e autenticacao por Token.
+- Rate limiting por escopo (auth, CEP, operacoes criticas) para seguranca.
+- Proxy de CEP (`/api/core/cep/<8digitos>/`) para evitar CORS no frontend.
+- Multi-banco por dominio de negocio (separacao de contextos).
+- Integracao com **AWS Cognito** para autenticacao e autorizacao escalavel.
+
+**Frontend — Angular 20+**
+- SPA moderna com **Angular 20+**, Bootstrap e CSS customizado.
+- Interceptor HTTP global para autenticacao automatica em todas as requisicoes.
+- Servico de sessao (`AuthSessionService`) com persistencia local segura.
+- Sistema de notificacoes em tempo real (toasts) para feedback de operacoes.
+
+**Integracao ERP — Bling**
+- Sincronizacao de produtos com o catalogo oficial da **WEG** via Bling API.
+- Gestao de pedidos, clientes e estoque refletida no ERP.
+- Webhooks para atualizacao em tempo real de status de pedidos.
+
+**Infraestrutura AWS**
+- **AWS Cognito** para autenticacao federada.
+- **PostgreSQL** (Amazon RDS) para dados relacionais de producao.
+- Preparado para expansao com **Lambda** (processamento serverless) e **S3** (armazenamento de arquivos).
+
+## Diferenciais do Projeto
+
+- **Escopo completo**: Da vitrine publica ao sistema interno — um fornecedor unico para toda a presenca digital.
+- **Integracao real com ERP**: Sincronizacao Bling eliminou retrabalho manual de cadastro de produtos.
+- **Arquitetura escalavel**: Stack Django + Angular + AWS preparada para crescimento da empresa.
+- **Seguranca**: Rate limiting, CORS configurado, Cognito para identidade — sem atalhos de seguranca.
+
+## Contexto
+
+A RGA Engenharia e uma empresa estabelecida com 15+ anos de mercado que precisava modernizar sua operacao digital — tanto a vitrine publica quanto os processos internos. O projeto unificou ambas as necessidades em uma solucao coesa com tecnologia de mercado atual.

@@ -1,0 +1,47 @@
+﻿@startuml Sistema_SPDA
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **Sistema_SPDA**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component [src] as src
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [inicializarAplicacao] as code_1
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+main --> code
+footer \\n<size:10>Sistema_SPDA - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

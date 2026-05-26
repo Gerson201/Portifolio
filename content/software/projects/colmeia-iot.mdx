@@ -1,0 +1,70 @@
+---
+title: "Sistema ColmeIA - Monitoramento IoT de Colmeias"
+date: "2026-01-25"
+area: "software"
+type: "project"
+tags: ["iot", "monitoramento", "sensores", "firebase", "dashboard", "apicultura", "esp32"]
+stack: ["React 19", "Django 5.2", "Firebase", "Chart.js", "ESP32", "Sensores IoT", "Python"]
+status: "public-demo"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/Sistema-ColmeIA"
+summary: "Plataforma IoT para monitoramento em tempo real de colmeias com sensores ESP32, dashboard interativo e alertas automaticos."
+---
+
+## Visao Geral
+
+Sistema de **Internet das Coisas (IoT)** para monitoramento inteligente de colmeias de abelhas. A plataforma integra sensores fisicos (temperatura, umidade, peso, som) com um dashboard web para acompanhamento em tempo real da saude das colmeias, geracao de alertas e analise historica de dados.
+
+O projeto combina **hardware embarcado** (ESP32 com sensores) e **software fullstack** (React + Django + Firebase) em uma solucao completa de apicultura de precisao.
+
+## Arquitetura
+
+### Hardware — ESP32 + Sensores
+- Microcontrolador **ESP32** com conectividade Wi-Fi para envio de dados.
+- Sensores de **temperatura e umidade** (DHT22) internos e externos a colmeia.
+- **Celula de carga** para monitoramento de peso (producao de mel e enxame).
+- Sensor de **som** para deteccao de anomalias (zumbido de enxameacao, rainha ausente).
+- Alimentacao por bateria com painel solar para operacao autonoma.
+
+### Backend — Django 5.2
+- API REST com **Django 5.2** para processamento e armazenamento de dados.
+- Modelos de dados para colmeias, sensores, leituras e alertas.
+- Processamento de regras de alerta (limiares de temperatura, variacao de peso).
+- Autenticacao e gerenciamento de usuarios/apiarios.
+
+### Frontend — React 19
+- Dashboard interativo com **React 19** e componentes modernos.
+- Graficos em tempo real com **Chart.js** (temperatura, umidade, peso ao longo do tempo).
+- Mapa de apiarios com status visual de cada colmeia.
+- Painel de alertas com historico e acoes recomendadas.
+
+### Cloud — Firebase
+- **Firebase Realtime Database** para streaming de dados dos sensores.
+- **Firebase Cloud Messaging** para notificacoes push de alertas criticos.
+- Sincronizacao em tempo real entre sensores e dashboard.
+
+## Funcionalidades
+
+### Monitoramento em Tempo Real
+- Leitura continua de temperatura, umidade, peso e som.
+- Atualizacao automatica do dashboard sem refresh.
+- Indicadores visuais de saude: verde (ok), amarelo (atencao), vermelho (critico).
+
+### Sistema de Alertas
+- **Temperatura critica**: Alerta quando a temperatura interna ultrapassa limiares seguros (>40C ou <10C).
+- **Variacao de peso anormal**: Detecta perda subita (possivel enxameacao ou roubo).
+- **Umidade excessiva**: Indica risco de doencas ou fermentacao do mel.
+- Notificacoes via push, email e dashboard.
+
+### Analise Historica
+- Graficos de tendencia por periodo (dia, semana, mes, ano).
+- Comparacao entre colmeias do mesmo apiario.
+- Exportacao de dados em CSV para analise externa.
+
+## Diferenciais
+
+- **Solucao end-to-end**: Do sensor ao dashboard, passando por cloud e alertas.
+- **Custo acessivel**: Hardware baseado em ESP32, acessivel para pequenos apicultores.
+- **Autonomia energetica**: Painel solar e gestao de energia para operacao em campo.
+- **Apicultura de precisao**: Dados objetivos para tomada de decisao.

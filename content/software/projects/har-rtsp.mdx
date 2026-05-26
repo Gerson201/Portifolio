@@ -1,0 +1,68 @@
+---
+title: "Gerenciador de Streams RTMP"
+date: "2026-02-01"
+area: "software"
+type: "project"
+tags: ["rtmp", "streaming", "fastapi", "clean-architecture", "docker", "hls", "cameras"]
+stack: ["Python", "FastAPI", "Nginx RTMP", "Docker", "SQLite", "HTML/CSS/JS"]
+status: "private-core"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/har-rtsp-public-demo"
+demo: "https://demo.example.com/har"
+summary: "Sistema completo para geracao e gestao de streams RTMP com API, interface web e HLS/DASH, seguindo Clean Architecture."
+---
+
+## Visao Geral
+
+Sistema de **gerenciamento de streams de video RTMP** para operacao com cameras IP e sistemas de vigilancia. Permite criar, monitorar e gerenciar streams de video com conversao automatica para **HLS e DASH**, possibilitando visualizacao em navegadores web e dispositivos moveis.
+
+Construido com **Clean Architecture**, o sistema separa completamente a logica de negocio da infraestrutura de streaming, facilitando manutencao e extensao.
+
+## Arquitetura
+
+### Backend — FastAPI
+- API REST com **FastAPI** para gerenciamento de streams e cameras.
+- Endpoints para: criar/remover streams, listar cameras ativas, verificar saude do sistema.
+- Persistencia em **SQLite** para configuracoes e metadados de streams.
+- Healthcheck automatico com monitoramento de latencia e status.
+
+### Streaming — Nginx RTMP
+- Servidor **Nginx** com modulo RTMP para recebimento e redistribuicao de streams.
+- **Transmuxing** automatico: RTMP para HLS (HTTP Live Streaming) e DASH.
+- Suporte a multiplos streams simultaneos com isolamento.
+- Configuracao dinamica de qualidade e bitrate.
+
+### Interface Web
+- Painel web em **HTML/CSS/JavaScript** para operacao diaria.
+- Visualizacao ao vivo de streams via player HLS nativo.
+- Gerenciamento de cameras com status em tempo real (online/offline/erro).
+- Interface responsiva para acesso via desktop e mobile.
+
+### Deploy — Docker
+- **Docker Compose** com servicos isolados: API FastAPI, Nginx RTMP, interface web.
+- Volumes persistentes para configuracoes e gravacoes.
+- Rede interna para comunicacao segura entre servicos.
+- Deploy em um comando: `docker-compose up -d`.
+
+## Funcionalidades
+
+- **Geracao de links RTMP seguros**: URLs unicas por camera com token de autenticacao.
+- **Monitoramento de streams**: Status em tempo real, alertas de desconexao.
+- **Conversao HLS/DASH**: Visualizacao em qualquer navegador moderno sem plugins.
+- **API de saude**: Endpoints de healthcheck para integracao com sistemas de monitoramento.
+- **Gravacao opcional**: Armazenamento de streams para revisao posterior.
+
+## Clean Architecture
+
+- **Domain**: Entidades de Camera e Stream com regras de negocio.
+- **Application**: Casos de uso de gerenciamento de streams.
+- **Infrastructure**: Adaptadores para Nginx RTMP, SQLite e filesystem.
+- **Presentation**: API FastAPI e interface web.
+
+## Diferenciais
+
+- **Plug-and-play**: Adicionar uma camera requer apenas a URL RTMP.
+- **Web-native**: Streaming via HLS funciona em qualquer navegador, sem instalacao.
+- **Containerizado**: Deploy completo com Docker Compose.
+- **Clean Architecture**: Codigo organizado e testavel, facil de estender.

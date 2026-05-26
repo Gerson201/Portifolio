@@ -1,0 +1,72 @@
+﻿@startuml IA_Mercado_2
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **IA_Mercado_2**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component [src] as src
+  component [models] as models
+  component [data] as data
+  component [config] as config
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [ReplayBuffer] as code_1
+  component [__init__] as code_2
+  component [push] as code_3
+  component [sample] as code_4
+  component [__len__] as code_5
+  component [Actor] as code_6
+  component [forward] as code_7
+  component [Critic] as code_8
+  component [Q1] as code_9
+  component [TD3Agent] as code_10
+  component [select_action] as code_11
+  component [train] as code_12
+  component [_soft_update] as code_13
+  component [save] as code_14
+  component [load] as code_15
+  component [DQN] as code_16
+  component [DDQNAgent] as code_17
+  component [update_target_network] as code_18
+  component [BacktestResult] as code_19
+  component [TransactionCostModel] as code_20
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+src --> models
+data --> models
+config --> src
+main --> code
+footer \\n<size:10>IA_Mercado_2 - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

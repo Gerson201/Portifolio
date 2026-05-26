@@ -1,0 +1,68 @@
+﻿@startuml Sistema_Qualidade_de_energia
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **Sistema_Qualidade_de_energia**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component [tests] as tests
+  component [ui] as ui
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [FFI] as code_1
+  component [__init__] as code_2
+  component [cdef] as code_3
+  component [embedding_api] as code_4
+  component [_cdef] as code_5
+  component [dlopen] as code_6
+  component [dlclose] as code_7
+  component [_typeof_locked] as code_8
+  component [_typeof] as code_9
+  component [typeof] as code_10
+  component [sizeof] as code_11
+  component [alignof] as code_12
+  component [offsetof] as code_13
+  component [new] as code_14
+  component [new_allocator] as code_15
+  component [allocate] as code_16
+  component [cast] as code_17
+  component [string] as code_18
+  component [unpack] as code_19
+  component [from_buffer] as code_20
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+tests --> ui
+main --> code
+footer \\n<size:10>Sistema_Qualidade_de_energia - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

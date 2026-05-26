@@ -1,0 +1,62 @@
+---
+title: "Trading Algoritmico FX com Deep Learning"
+date: "2026-02-04"
+area: "software"
+type: "project"
+tags: ["ia", "forex", "deep-learning", "reinforcement-learning", "cnn-lstm", "microestrutura", "walk-forward"]
+stack: ["Python", "PyTorch", "MetaTrader 5", "CNN-LSTM", "Bi-LSTM", "TD3", "DDQN", "NumPy", "Pandas"]
+status: "private-core"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/IA_Mercado_2"
+summary: "Sistema de trading FX com redes neurais hibridas, agentes de Reinforcement Learning para execucao e validacao Walk-Forward com purge temporal."
+---
+
+## Visao Geral
+
+Sistema de trading algoritmico para o mercado de cambio (Forex), com foco em dois pares estrategicos: **EUR/USD** (mean reversion) e **USD/JPY** (momentum). O projeto combina redes neurais profundas para predicao de sinais com agentes de Reinforcement Learning para execucao otima e gestao dinamica de stop-loss.
+
+## Estrategias por Par
+
+### EUR/USD — Mean Reversion
+- Modelo **CNN-LSTM Hibrido**: camadas convolucionais extraem features locais de price action, alimentando uma LSTM para captura de dependencias temporais.
+- Deteccao de desvios em relacao a media movel de equilíbrio para entrada em reversao.
+
+### USD/JPY — Momentum
+- Modelo **Bi-LSTM com Attention**: processamento bidirecional da serie temporal com mecanismo de atencao para ponderacao de periodos relevantes.
+- Sinais baseados em forca e persistencia de tendencia.
+
+## Agentes de Reinforcement Learning
+
+### TD3 (Twin Delayed DDPG) — Execucao
+- Agente de acao continua para **timing otimo** de entrada e saida.
+- Duas redes criticas (twin) para reducao de overestimation bias.
+- Atualizacoes delayed do ator para estabilidade.
+
+### DDQN (Double Deep Q-Network) — Stop-Loss Dinamico
+- Agente discreto para ajuste adaptativo de niveis de stop-loss.
+- Double Q-Learning elimina viés de superestimacao.
+- Acoes: manter, apertar ou relaxar stop com base no regime de mercado.
+
+## Features de Microestrutura
+
+O sistema utiliza mais de **20 features de microestrutura de mercado**, incluindo:
+
+- **Order Flow Imbalance (OFI)**: Desequilibrio entre ordens de compra e venda no book.
+- **Analise de Limit Order Book**: Profundidade, spread, e pressao de liquidez.
+- **Volume Profile**: Distribuicao de volume por nivel de preco.
+- **Volatilidade Realizada**: Calculada em multiplas janelas temporais.
+
+## Validacao Rigorosa
+
+### Walk-Forward Validation
+- Metodologia de validacao temporal que simula o uso real do modelo ao longo do tempo.
+- **Purging**: Remocao de amostras proximas a fronteira treino/teste para evitar data leakage.
+- **Embargo**: Periodo de gap apos o conjunto de treino para eliminar autocorrelacao residual.
+- Resultados avaliados por janela, garantindo robustez em diferentes regimes de mercado.
+
+## Pipeline de Dados
+
+- Ingestao via **MetaTrader 5** com multiplos timeframes.
+- Normalizacao adaptativa e feature engineering automatizado.
+- Configuracao completa via YAML (240+ parametros de modelo, risco e execucao).

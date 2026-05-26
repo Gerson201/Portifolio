@@ -1,0 +1,75 @@
+﻿@startuml IA-para-Mercado-Financeiro
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **IA-para-Mercado-Financeiro**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component [src] as src
+  component [models] as models
+  component [data] as data
+  component [docs] as docs
+  component [scripts] as scripts
+  component [tests] as tests
+  component [notebooks] as notebooks
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [Price] as code_1
+  component [__init__] as code_2
+  component [value] as code_3
+  component [__str__] as code_4
+  component [__repr__] as code_5
+  component [__eq__] as code_6
+  component [__lt__] as code_7
+  component [__le__] as code_8
+  component [__gt__] as code_9
+  component [__ge__] as code_10
+  component [__hash__] as code_11
+  component [__add__] as code_12
+  component [__sub__] as code_13
+  component [__mul__] as code_14
+  component [__truediv__] as code_15
+  component [BackupError] as code_16
+  component [RecoveryError] as code_17
+  component [BackupResult] as code_18
+  component [__post_init__] as code_19
+  component [to_dict] as code_20
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+src --> models
+data --> models
+notebooks --> models
+main --> code
+footer \\n<size:10>IA-para-Mercado-Financeiro - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

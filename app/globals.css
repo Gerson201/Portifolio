@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode */
+:root {
+  --bg: #f8f9fb;
+  --fg: #0d1117;
+  --card: #ffffff;
+  --muted: #57606a;
+  --accent: #0969da;
+  --accent-2: #0550ae;
+  --border: #d0d7de;
+}
+
+/* Dark mode */
+.dark {
+  --bg: #0d1117;
+  --fg: #e6edf3;
+  --card: #161b22;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-2: #79c0ff;
+  --border: #21262d;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-base text-fg font-sans;
+}
+
+a {
+  @apply text-accent transition-colors;
+}
+
+a:hover {
+  @apply text-accent-2;
+}
+
+.container {
+  @apply mx-auto w-full max-w-5xl px-6;
+}
+
+.card {
+  @apply bg-card border border-border rounded-xl;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-md border border-border px-2 py-0.5 text-xs font-medium text-muted;
+}

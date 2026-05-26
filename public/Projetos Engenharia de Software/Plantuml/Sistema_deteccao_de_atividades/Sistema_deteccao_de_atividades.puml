@@ -1,0 +1,76 @@
+﻿@startuml Sistema_deteccao_de_atividades
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **Sistema_deteccao_de_atividades**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component "__pycache__" as pycache_dir
+  component "Arquivos UCF 101" as arquivos_ucf_101
+  component "Arquivos Havard" as arquivos_havard
+  component "Artigos" as artigos
+  component "Configuracao para cameras" as configuracao_cameras
+  component "kinetics-dataset" as kinetics_dataset
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [extract_mediapipe_keypoints] as code_1
+  component [extract_efficientnet_features] as code_2
+  component [build_lstm_model] as code_3
+  component [main] as code_4
+  component [get_video_paths_and_labels] as code_5
+  component [data_generator] as code_6
+  component [build_model] as code_7
+  component [extract_vit_features_from_video] as code_8
+  component [preprocess_and_save_data] as code_9
+  component [obter_url_rtsp] as code_10
+  component [iniciar_mibo] as code_11
+  component [testar_mibo] as code_12
+  component [iniciar_webcam] as code_13
+  component [testar_webcam] as code_14
+  component [PerformanceMonitor] as code_15
+  component [__init__] as code_16
+  component [_get_hardware_info] as code_17
+  component [_monitor_resources] as code_18
+  component [monitor_process] as code_19
+  component [_format_duration] as code_20
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+pycache_dir --> arquivos_ucf_101
+arquivos_ucf_101 --> arquivos_havard
+arquivos_havard --> artigos
+artigos --> configuracao_cameras
+configuracao_cameras --> kinetics_dataset
+main --> code
+footer \\n<size:10>Sistema_deteccao_de_atividades - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

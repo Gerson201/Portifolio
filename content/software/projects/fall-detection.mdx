@@ -1,0 +1,67 @@
+---
+title: "Deteccao de Quedas com HAR"
+date: "2026-02-03"
+area: "software"
+type: "project"
+tags: ["har", "quedas", "tracking", "reid", "onnx", "visao", "deep-learning", "edge"]
+stack: ["Python", "ONNX Runtime", "OpenCV", "MediaPipe", "EfficientNet", "TCN", "Docker"]
+status: "public-demo"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/fall-detection-edge"
+demo: "https://demo.example.com/fall"
+summary: "Sistema de visao para deteccao de quedas e atividades com tracking, re-identificacao e pipeline modular em Clean Architecture."
+---
+
+## Visao Geral
+
+Sistema de **visao computacional em tempo real** para deteccao de quedas e reconhecimento de atividades humanas (HAR). Projetado para operacao em dispositivos edge (Raspberry Pi, Jetson Nano), o sistema processa streams de video para identificar situacoes de risco como quedas de idosos, com alertas automaticos e tracking de multiplas pessoas.
+
+## Arquiteturas HAR em Paralelo
+
+O sistema implementa **duas arquiteturas complementares** que operam em paralelo para maximizar precisao e robustez:
+
+### TCN (Temporal Convolutional Network) Pura
+- Rede convolucional temporal para classificacao de sequencias de poses.
+- Processa janelas deslizantes de keypoints corporais ao longo do tempo.
+- Otimizada para **baixa latencia** em dispositivos edge.
+- Classificacao de atividades: em pe, sentado, andando, caindo, caido.
+
+### EfficientNet + MediaPipe
+- **MediaPipe Pose** para extracao de 33 keypoints corporais em tempo real.
+- **EfficientNet** como backbone para extracao de features visuais do frame.
+- Fusao de features de pose e features visuais para classificacao hibrida.
+- Maior precisao em cenarios com oclusao parcial.
+
+## Tracking e Re-Identificacao
+
+### Tracking Multi-Objeto
+- Rastreamento simultaneo de multiplas pessoas na cena.
+- Associacao de deteccoes entre frames usando IoU e features de aparencia.
+- Manutencao de identidade mesmo com cruzamento de trajetorias.
+
+### Re-Identificacao (ReID)
+- Modelo de re-identificacao para recuperar identidade apos oclusao total.
+- Essencial para **eventos criticos**: se uma pessoa cai e sai do campo de visao, o sistema a reconhece ao retornar.
+- Embeddings de aparencia armazenados por pessoa rastreada.
+
+## Pipeline Modular
+
+O sistema segue **Clean Architecture** com pipeline modular para integracao de modelos ONNX:
+
+- **Ingestao**: Captura de frames via camera, RTSP ou arquivo de video.
+- **Deteccao**: Localizacao de pessoas no frame (YOLO ou similar via ONNX).
+- **Pose**: Extracao de keypoints corporais (MediaPipe).
+- **Classificacao**: Inferencia HAR (TCN ou EfficientNet, ambos via ONNX Runtime).
+- **Tracking**: Associacao e rastreamento entre frames.
+- **Alerta**: Geracao de alertas para quedas detectadas com confianca acima do limiar.
+
+Todos os modelos sao executados via **ONNX Runtime**, permitindo portabilidade entre CPU, GPU e aceleradores edge (NPU, Coral).
+
+## Diferenciais
+
+- **Edge-first**: Projetado para rodar em Raspberry Pi e Jetson Nano, nao requer cloud.
+- **Duas arquiteturas paralelas**: Redundancia para cenarios criticos de saude.
+- **Re-identificacao**: Nao perde a identidade da pessoa mesmo apos oclusao.
+- **ONNX portavel**: Modelos executam em qualquer hardware com ONNX Runtime.
+- **Tempo real**: Processamento a 15-30 FPS dependendo do hardware.

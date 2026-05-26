@@ -1,0 +1,68 @@
+﻿@startuml Programs-Gerson
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **Programs-Gerson**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component "Extração e criação de Banco de Dados De componentes" as extracao_criacao_bd_componentes
+  component "Programa Inteligencia computacional" as programa_inteligencia_computacional
+  component "Raspagem copasa" as raspagem_copasa
+  component "Sistema ColmeIA - Copia" as sistema_colmeia_copia
+  component "Sistema Gerson" as sistema_gerson
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [model_exponential] as code_1
+  component [generate_dengue_data] as code_2
+  component [classify_dengue] as code_3
+  component [model_polynomial] as code_4
+  component [views] as code_5
+  component [parse_reading_string] as code_6
+  component [login_view] as code_7
+  component [data_view] as code_8
+  component [historical_data_view] as code_9
+  component [get_sort_key] as code_10
+  component [main] as code_11
+  component [CoreConfig] as code_12
+  component [App] as code_13
+  component [Login] as code_14
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+extracao_criacao_bd_componentes --> programa_inteligencia_computacional
+programa_inteligencia_computacional --> raspagem_copasa
+raspagem_copasa --> sistema_colmeia_copia
+sistema_colmeia_copia --> sistema_gerson
+main --> code
+footer \\n<size:10>Programs-Gerson - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

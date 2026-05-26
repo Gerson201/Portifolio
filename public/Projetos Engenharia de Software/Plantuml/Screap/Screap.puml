@@ -1,0 +1,68 @@
+﻿@startuml Screap_copasa
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **Screap_copasa**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component [src] as src
+  component [tests] as tests
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [ApiInterceptor] as code_1
+  component [capturar_requisicoes_api] as code_2
+  component [obter_resposta_api] as code_3
+  component [extrair_dados_de_api] as code_4
+  component [Config] as code_5
+  component [validar_credenciais] as code_6
+  component [ScreapCopasaGUI] as code_7
+  component [__init__] as code_8
+  component [_criar_widgets] as code_9
+  component [_configurar_layout] as code_10
+  component [_atualizar_status] as code_11
+  component [_adicionar_resultado] as code_12
+  component [_limpar_resultados] as code_13
+  component [_iniciar_scraping_automatico] as code_14
+  component [_executar_scraping] as code_15
+  component [_parar_scraping] as code_16
+  component [_finalizar_scraping] as code_17
+  component [_mostrar_sobre] as code_18
+  component [fechar] as code_19
+  component [main] as code_20
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+src --> tests
+main --> code
+footer \\n<size:10>Screap_copasa - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

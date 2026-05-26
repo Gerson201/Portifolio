@@ -1,0 +1,61 @@
+﻿@startuml Sistema-ColmeIA
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam defaultFontName "Segoe UI"
+skinparam defaultFontSize 11
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 10
+skinparam linetype ortho
+
+title **Sistema-ColmeIA**\\n<size:13>Arquitetura e Modulos Principais</size>\\n<size:11>Resumo para portifolio</size>
+
+legend right
+  |= Cor |= Camada |
+  | <#1565C0> | Apresentacao |
+  | <#0277BD> | Aplicacao |
+  | <#00838F> | Dominio |
+  | <#00695C> | Infraestrutura |
+  | <#AD1457> | Observabilidade |
+  | <#9E9E9E> | Dados Sigilosos (Isolado) |
+end legend
+
+package "Modulos Principais" as main <<Rectangle>> #E3F2FD {
+  component [backend] as backend
+  component [frontend] as frontend
+}
+
+package "Classes e Funcoes (amostra)" as code <<Rectangle>> #E8F5E9 {
+  component [CoreConfig] as code_1
+  component [test_view] as code_2
+  component [simple_test] as code_3
+  component [parse_reading_string] as code_4
+  component [login_view] as code_5
+  component [data_view] as code_6
+  component [historical_data_view] as code_7
+  component [get_sort_key] as code_8
+  component [main] as code_9
+  component [views] as code_10
+  component [root_view] as code_11
+  component [App] as code_12
+  component [Login] as code_13
+}
+
+note as secrets #EEEEEE
+  **Dados Sigilosos**
+  ---
+  Credenciais, tokens, chaves
+  Variaveis de ambiente
+  Configs sensiveis
+end note
+
+
+' ====== RELACIONAMENTOS ======
+frontend --> backend
+main --> code
+footer \\n<size:10>Sistema-ColmeIA - Diagrama para portifolio (sem dados sensiveis)</size>
+
+
+
+
+@enduml

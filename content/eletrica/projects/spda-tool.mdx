@@ -1,0 +1,97 @@
+---
+title: "SPDA NBR 5419 Design Tool"
+date: "2026-02-02"
+area: "eletrica"
+type: "project"
+tags: ["spda", "nbr5419", "conformidade", "protecao-atmosferica", "calculo-risco"]
+stack: ["Python", "FastAPI", "Vue", "NumPy"]
+status: "client-sanitized"
+featured: true
+image: "/images/Home/engenharia_eletrica.jpg"
+repo: "https://github.com/Gerson201/spda-tool"
+demo: "https://demo.example.com/spda"
+summary: "Ferramenta de apoio a projetos de SPDA com calculo de risco conforme NBR 5419, dimensionamento de captores e relatorios tecnicos."
+---
+
+## Sanitizacao
+
+Os dados apresentados neste projeto sao **totalmente sanitizados** para preservar a propriedade intelectual e informacoes confidenciais de clientes. Valores numericos, localizacoes e identificadores foram generalizados ou substituidos.
+
+## Visao Geral
+
+Ferramenta de engenharia para apoio ao **projeto de Sistemas de Protecao contra Descargas Atmosfericas (SPDA)** conforme a norma **NBR 5419**. O sistema automatiza o calculo de risco, dimensionamento de captores e condutores de descida, e gera relatorios tecnicos completos para documentacao do projeto.
+
+## Funcionalidades
+
+### Calculo de Risco — NBR 5419-2
+- Avaliacao de risco conforme as **4 partes da NBR 5419**.
+- Calculo dos componentes de risco: R1 (perda de vida humana), R2 (perda de servico publico), R3 (perda de patrimonio cultural), R4 (perda de valor economico).
+- Determinacao automatica do **Nivel de Protecao (NP)** necessario: I, II, III ou IV.
+- Parametros de entrada: dimensoes da estrutura, tipo de construcao, conteudo, localizacao, linhas conectadas.
+
+### Dimensionamento de SPDA
+- **Captores**: Calculo pelo metodo da esfera rolante, malha e angulo de protecao.
+- **Condutores de descida**: Quantidade e espacamento conforme nivel de protecao.
+- **Sistema de aterramento**: Dimensionamento de eletrodos conforme resistividade do solo.
+- **DPS (Dispositivos de Protecao contra Surtos)**: Especificacao de classes e niveis de protecao.
+
+### Checklist NBR 5419
+- Lista verificavel de todos os requisitos obrigatorios da norma.
+- Status de conformidade por item (conforme, nao-conforme, nao-aplicavel).
+- Identificacao automatica de nao-conformidades criticas.
+- Rastreabilidade entre requisito e solucao adotada.
+
+### Relatorios e Memorial de Calculo
+- **Memorial de calculo** completo com todas as formulas e parametros utilizados.
+- **Relatorio tecnico** formatado para entrega ao cliente.
+- **Plantas e croquis**: Indicacao de posicionamento de captores e descidas.
+- Exportacao em formatos **PDF** e **DOCX** para documentacao final.
+
+## Arquitetura
+
+### Backend — FastAPI + Python
+- API REST com **FastAPI** para calculos e geracao de relatorios.
+- Modulos de calculo em **Python** com **NumPy** para operacoes numericas.
+- Banco de dados de materiais, condutores e parametros normativos.
+
+### Frontend — Vue
+- Interface web com **Vue.js** para entrada de dados e visualizacao de resultados.
+- Formularios guiados passo a passo para preenchimento dos parametros.
+- Visualizacao grafica do resultado do calculo de risco.
+
+## Aplicacoes
+
+- Projetos de SPDA para edificacoes comerciais e industriais.
+- Laudos tecnicos de conformidade com NBR 5419.
+- Dimensionamento de retrofit de sistemas existentes.
+- Ferramenta didatica para ensino de protecao atmosferica.
+
+## Diferenciais
+
+- **Norma atualizada**: Implementa a NBR 5419 em sua versao mais recente.
+- **Calculo completo**: Do risco ao dimensionamento em uma unica ferramenta.
+- **Relatorios profissionais**: Saida pronta para documentacao tecnica do projeto.
+- **Acessivel**: Alternativa gratuita a ferramentas comerciais de SPDA.
+
+## Contexto e Objetivo
+
+Projeto voltado a **reduzir o tempo de elaboracao de memoriais de calculo** e **padronizar a conformidade** com a NBR 5419. O foco foi transformar o processo em uma sequencia guiada, com rastreabilidade de decisoes.
+
+## Escopo e Responsabilidade (sanitizado)
+
+- Levantamento dos requisitos normativos da NBR 5419.
+- Modelagem das regras de calculo e automacao de relatorios.
+- Implementacao do backend e integracao com a interface web.
+- Validacao com cenarios de teste sanitizados.
+
+## Decisoes Tecnicas
+
+- **Python + NumPy** para garantir confiabilidade numerica e clareza das formulas.
+- **FastAPI** para API tipada, rapida e com baixo custo de manutencao.
+- **Vue** para formularios guiados e feedback em tempo real.
+
+## Evidencias e Validacao
+
+- Relatorios tecnicos gerados automaticamente (sanitizados).
+- Casos de teste com variacoes de parametros e niveis de protecao.
+- Indicadores quantitativos: **nao divulgados** (disponiveis sob NDA).

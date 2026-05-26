@@ -1,0 +1,97 @@
+---
+title: "IoT LoRa Fallback para Subestacoes"
+date: "2026-01-05"
+area: "eletrica"
+type: "project"
+tags: ["internet-das-coisas", "lora", "resiliencia", "telemetria", "subestacoes", "scada"]
+stack: ["Embedded C", "LoRaWAN", "Node-RED", "MQTT", "ESP32", "InfluxDB"]
+status: "public-demo"
+featured: false
+image: "/images/Home/engenharia_eletrica.jpg"
+repo: "https://github.com/Gerson201/lora-fallback"
+demo: "https://demo.example.com/lora"
+summary: "Arquitetura de fallback IoT para telemetria em subestacoes com conectividade intermitente, usando LoRaWAN como canal de contingencia."
+---
+
+## Visao Geral
+
+Arquitetura de **comunicacao de contingencia** para subestacoes eletricas utilizando **LoRaWAN** como canal de fallback quando o backbone de comunicacao principal (fibra optica, 4G/5G ou satelite) esta indisponivel. O sistema garante que **telemetria minima e alarmes essenciais** continuem sendo transmitidos mesmo em cenarios de perda total de conectividade convencional.
+
+## Problema
+
+Subestacoes eletricas em areas remotas ou com infraestrutura precaria frequentemente sofrem com:
+- Queda de enlaces de fibra optica por vandalismo ou intemperies.
+- Indisponibilidade de rede celular em areas rurais.
+- Falhas em equipamentos de comunicacao SCADA.
+
+A perda de telemetria pode resultar em **operacao as cegas**, impedindo a deteccao de faltas, sobrecargas e condicoes anormais.
+
+## Solucao
+
+### Canal LoRaWAN de Contingencia
+- **LoRaWAN** como canal independente de longo alcance (ate 15 km em area rural).
+- Operacao em banda ISM (nao licenciada), sem custo de operadora.
+- Consumo ultra-baixo de energia, viabilizando alimentacao por bateria/solar.
+- Ativacao automatica quando o canal principal fica indisponivel.
+
+### Telemetria Essencial
+O canal de contingencia transmite um subconjunto critico de dados:
+- **Tensao e corrente** das fases principais (valores RMS).
+- **Estado de disjuntores** (aberto/fechado).
+- **Alarmes criticos**: sobrecorrente, sobretensao, temperatura elevada.
+- **Nivel de bateria** do sistema de fallback.
+
+### Deteccao de Falha e Comutacao
+- Monitoramento continuo do canal principal (heartbeat/keep-alive).
+- **Comutacao automatica** para LoRaWAN apos timeout configuravel.
+- Retorno automatico ao canal principal quando restabelecido.
+- Log de eventos de comutacao para analise posterior.
+
+## Arquitetura
+
+### Dispositivo de Campo — ESP32 + LoRa
+- Microcontrolador **ESP32** com modulo LoRa integrado.
+- Firmware em **Embedded C** otimizado para baixo consumo.
+- Sensores de tensao (TC) e corrente (TP) conectados via ADC.
+- Entradas digitais para estado de disjuntores e alarmes.
+
+### Gateway LoRaWAN
+- Gateway LoRaWAN para recebimento de dados dos dispositivos de campo.
+- Encaminhamento para servidor via Ethernet/Wi-Fi/4G.
+- Suporte a multiplos dispositivos simultaneos.
+
+### Backend — Node-RED + InfluxDB
+- **Node-RED** para orquestracao de fluxos de dados e regras de alarme.
+- **MQTT** como protocolo de comunicacao entre gateway e backend.
+- **InfluxDB** para armazenamento de series temporais.
+- Dashboard de monitoramento com status de conectividade.
+
+## Diferenciais
+
+- **Resiliencia**: Telemetria garantida mesmo com perda total do backbone.
+- **Autonomo**: Comutacao automatica sem intervencao humana.
+- **Longo alcance**: LoRaWAN cobre ate 15 km sem infraestrutura intermediaria.
+- **Baixo custo**: Hardware acessivel e operacao sem custos de comunicacao.
+- **Complementar**: Nao substitui o SCADA, atua como camada de seguranca adicional.
+
+## Contexto e Objetivo
+
+Projeto criado para **reduzir o tempo sem telemetria** quando o canal principal de comunicacao falha, mantendo dados minimos para operacao segura.
+
+## Escopo e Responsabilidade
+
+- Arquitetura do fallback e definicao de telemetria minima.
+- Firmware do dispositivo e regras de comutacao.
+- Pipeline de dados para registro e monitoramento.
+
+## Decisoes Tecnicas
+
+- **LoRaWAN** para alcance e independencia de operadoras.
+- **ESP32** para processamento local e baixo consumo.
+- **Node-RED** para orquestracao rapida de eventos e alarmes.
+
+## Evidencias e Validacao
+
+- Logs de comutacao e testes de perda de conectividade.
+- Dashboards de status e disponibilidade (sanitizados).
+- Indicadores quantitativos: **em validacao** (public demo).
