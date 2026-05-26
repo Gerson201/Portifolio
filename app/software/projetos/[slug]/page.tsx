@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { getAllProjects, getProjectBySlug } from "@/lib/content";
 import Prose from "@/components/Prose";
 import Badge from "@/components/Badge";
@@ -25,9 +26,11 @@ export default async function SoftwareProjectDetailPage({
       <div className="card p-8">
         {frontmatter.image && (
           <div className="mb-6 overflow-hidden rounded-2xl border border-border">
-            <img
+            <Image
               src={frontmatter.image}
               alt={frontmatter.title}
+              width={1200}
+              height={256}
               className="h-64 w-full object-cover"
             />
           </div>

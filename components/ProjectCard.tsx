@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Project } from "@/lib/types";
 import Badge from "@/components/Badge";
@@ -15,11 +16,12 @@ export default function ProjectCard({ project }: { project: Project }) {
     >
       {project.image && (
         <div className="mb-4 overflow-hidden rounded-2xl border border-border">
-          <img
+          <Image
             src={project.image}
             alt={project.title}
+            width={800}
+            height={176}
             className="h-44 w-full object-cover"
-            loading="lazy"
           />
         </div>
       )}
