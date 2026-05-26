@@ -40,7 +40,7 @@ export default function SoftwarePage() {
           title="Projetos"
           subtitle="Sistemas de produção, protótipos validados e ferramentas open source."
         />
-        <ProjectGrid items={projects} showAreaFilter={false} showStatusFilter={true} />
+        <ProjectGrid items={projects} />
         <a
           href="/software/projetos"
           className="mt-6 inline-flex items-center rounded-lg border border-border px-4 py-2 text-xs font-semibold text-fg transition hover:border-accent"

@@ -32,7 +32,7 @@ export default function SoftwareProjectsPage() {
         title="Projetos de Engenharia de Software"
         subtitle="Cards com detalhes de cada projeto da trilha de software."
       />
-      <ProjectGrid items={projects} showAreaFilter={false} showStatusFilter={true} />
+      <ProjectGrid items={projects} />
     </div>
   );
 }

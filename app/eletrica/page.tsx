@@ -17,7 +17,7 @@ export default function EletricaPage() {
         title="Projetos"
         subtitle="Acesse a lista completa de projetos da trilha elétrica."
       />
-      <ProjectGrid items={projects} showAreaFilter={false} showStatusFilter={true} />
+      <ProjectGrid items={projects} />
       <a
         href="/eletrica/projetos"
         className="mt-6 inline-flex items-center rounded-full border border-border px-5 py-2 text-xs font-semibold text-fg transition hover:border-accent"

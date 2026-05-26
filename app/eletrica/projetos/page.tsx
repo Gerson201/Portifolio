@@ -15,7 +15,7 @@ export default function EletricaProjectsPage() {
         title="Projetos de Engenharia Elétrica"
         subtitle="Cards com detalhes de cada projeto da trilha elétrica."
       />
-      <ProjectGrid items={projects} showAreaFilter={false} showStatusFilter={true} />
+      <ProjectGrid items={projects} />
     </div>
   );
 }
