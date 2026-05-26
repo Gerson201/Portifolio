@@ -40,4 +40,3 @@ scripts/*.pyc
 
 # Claude Code project settings
 .claude/
-.github/workflows/
