@@ -36,36 +36,44 @@ const SKILLS_GROUPS = [
   {
     title: "Machine Learning & IA",
     items: [
-      "PyTorch", "ONNX Runtime", "Scikit-learn", "LSTMs", "Transformers",
+      "TensorFlow", "PyTorch", "ONNX Runtime", "Scikit-learn",
+      "XGBoost", "LightGBM", "TA-Lib", "CNN", "LSTM", "Transformers",
       "Reinforcement Learning", "MediaPipe", "OpenCV", "SegFormer",
     ],
   },
   {
     title: "Backend & APIs",
     items: [
-      "FastAPI", "NestJS", "Django", "Flask", "Node.js",
-      "REST", "WebSocket", "Pydantic",
+      "FastAPI", "NestJS", "Django", "Express", "Flask", "Node.js",
+      "REST", "WebSocket", "Pydantic", "JWT", "SQLAlchemy",
     ],
   },
   {
     title: "Frontend & Desktop",
     items: [
-      "React 19", "Next.js 14", "Electron", "TypeScript",
-      "Tailwind CSS", "Zustand", "Framer Motion",
+      "React", "Next.js", "Electron", "TypeScript",
+      "Tailwind CSS", "MUI", "Vite", "Zustand",
     ],
   },
   {
     title: "Dados & Banco de Dados",
     items: [
       "PostgreSQL", "SQLite", "Firebase", "Prisma",
-      "Alembic", "Pandas", "NumPy",
+      "Alembic", "Pandas", "NumPy", "Google Analytics API",
     ],
   },
   {
-    title: "DevOps & Arquitetura",
+    title: "DevOps & QA",
     items: [
-      "Docker", "GitHub Actions", "Turborepo", "pnpm Workspaces",
-      "Clean Architecture", "Multi-Tenant SaaS", "Edge Computing",
+      "Docker", "GitHub Actions", "Playwright", "Turborepo",
+      "pnpm Workspaces", "pytest", "Jest",
+    ],
+  },
+  {
+    title: "Arquitetura",
+    items: [
+      "Clean Architecture", "Multi-Tenant SaaS",
+      "Edge Computing", "Monorepo", "MCP (Model Context Protocol)",
     ],
   },
   {

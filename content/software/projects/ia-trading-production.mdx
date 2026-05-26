@@ -4,12 +4,12 @@ date: "2026-02-05"
 area: "software"
 type: "project"
 tags: ["ia", "trading", "deep-learning", "reinforcement-learning", "clean-architecture", "metatrader", "financeiro"]
-stack: ["Python", "PyTorch", "Flask", "WebSocket", "MetaTrader 5", "LSTM", "PPO", "GARCH", "NumPy", "Pandas"]
+stack: ["Python", "TensorFlow", "XGBoost", "LightGBM", "TA-Lib", "MetaTrader 5", "CNN", "PPO", "GARCH", "NumPy", "Pandas"]
 status: "private-core"
 featured: true
 image: "/images/Home/Engenharia de Software.jpeg"
 repo: "https://github.com/Gerson201/IA-para-Mercado-Financeiro"
-summary: "Sistema completo de day trading automatizado com Deep Learning, Reinforcement Learning e gestão de risco adaptativa, integrado ao MetaTrader 5."
+summary: "Sistema de day trading automatizado com CNN, Reinforcement Learning (PPO), XGBoost, LightGBM, TA-Lib e gestao de risco adaptativa integrado ao MetaTrader 5."
 ---
 
 ## Visao Geral
@@ -29,9 +29,9 @@ O sistema segue **Clean Architecture** com separacao rigorosa em 4 camadas:
 
 ## Modelos de Deep Learning
 
-### Predicao de Precos — LSTM com Attention
-- Arquitetura LSTM multi-camada com mecanismo de **Self-Attention**.
-- Treinamento com janelas deslizantes e features de microestrutura.
+### Predicao de Precos — CNN com Attention
+- Arquitetura CNN com mecanismo de **Self-Attention** para series temporais.
+- Treinamento com janelas deslizantes e features de microestrutura (200+ indicadores via TA-Lib).
 - Cobertura de testes do modulo: **95,5%**.
 
 ### Predicao de Volatilidade — GARCH + LSTM Hibrido

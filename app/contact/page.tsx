@@ -18,8 +18,8 @@ const LINKS = [
     icon: Linkedin,
     label: "LinkedIn",
     description: "Perfil profissional, trajetória e recomendações.",
-    href: "https://linkedin.com/in/gerson-santos-dev",
-    display: "linkedin.com/in/gerson-santos-dev",
+    href: "https://linkedin.com/in/gerson-santos-14a94b24b",
+    display: "linkedin.com/in/gerson-santos-14a94b24b",
   },
   {
     icon: FileText,

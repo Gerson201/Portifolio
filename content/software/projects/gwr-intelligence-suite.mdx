@@ -1,0 +1,63 @@
+---
+title: "GWR Intelligence Suite — Agentes de IA para Marketing e Analytics"
+date: "2026-05-20"
+area: "software"
+type: "project"
+tags: ["ia", "agentes", "gemini", "analytics", "playwright", "typescript", "marketing", "automacao"]
+stack: ["TypeScript", "Node.js", "Express", "Gemini AI", "Playwright", "Google Analytics API", "SQLite", "JWT", "Docker"]
+status: "private-core"
+featured: true
+image: "/images/Home/Engenharia de Software.jpeg"
+repo: "https://github.com/Gerson201/gwr-tracking-intelligence"
+summary: "Suite de dois sistemas de IA para auditoria automatica de tracking analytics e analise de campanhas de marketing digital com agentes Gemini — em producao para cliente."
+---
+
+## Visao Geral
+
+Suite de sistemas de IA em producao para a **GWR Engenharia Eletrica**, composta por dois modulos independentes que automatizam tarefas de marketing digital usando agentes de IA baseados no **Google Gemini**.
+
+## GWR Tracking Intelligence
+
+Sistema de **auditoria automatica de tracking e analytics** para landing pages.
+
+### Arquitetura
+
+- **Backend**: API REST com **Express** + TypeScript, autenticacao **JWT**, rate-limiting com `express-rate-limit`, helmet para seguranca HTTP.
+- **Banco de dados**: **SQLite** via `better-sqlite3` — zero dependencia de servidor externo.
+- **Automacao**: **Playwright** para navegacao headless e captura de eventos de tracking em paginas reais.
+- **IA**: **Google Gemini** (`@google/generative-ai`) para analise dos dados de tracking capturados.
+
+### Funcionalidades
+
+- Auditoria automatica de tags GTM, GA4, pixels de conversao em qualquer URL.
+- Deteccao de eventos ausentes ou mal configurados (pageview, add_to_cart, purchase, etc.).
+- Relatorios em **PDF** com diagnose e recomendacoes geradas pelo Gemini.
+- API protegida com JWT para integracao com outros sistemas.
+
+---
+
+## GWR Marketing Intelligence
+
+Plataforma de **analise e correcao inteligente de campanhas de marketing digital**.
+
+### Arquitetura
+
+- **Multi-agente**: Agentes Gemini especializados por tarefa (analise de copy, performance de campanha, recomendacoes).
+- **Google Analytics API**: Integracao com `@google-analytics/data` e `@google-analytics/admin` para coleta de metricas reais.
+- **Frontend**: Interface React para visualizacao de insights e gerenciamento de campanhas.
+
+### Funcionalidades
+
+- Analise automatica de performance de campanhas Google Ads e organico.
+- Identificacao de oportunidades de melhoria por canal (SEO, pago, email).
+- Sugestoes de copy e ajustes de segmentacao geradas por IA.
+- Dashboard consolidado de metricas por periodo.
+
+---
+
+## Diferenciais
+
+- **Producao real**: Ambos os sistemas estao em uso ativo por equipe de marketing.
+- **Seguranca**: Rate limiting, helmet, JWT — nao e um prototipo de laboratorio.
+- **Zero cloud lock-in**: SQLite local no Tracking Intelligence, sem dependencia de banco gerenciado.
+- **Relatorios acionaveis**: PDF gerado por IA com diagnostico e plano de acao, nao apenas dados brutos.

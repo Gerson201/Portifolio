@@ -12,8 +12,8 @@
 | Category | Technologies |
 |----------|-------------|
 | **Languages** | Python · TypeScript · C++ |
-| **ML / AI** | PyTorch · ONNX Runtime · OpenCV · MediaPipe · Scikit-learn · LLMs |
-| **Backend** | FastAPI · NestJS · Django · Flask · Node.js |
+| **ML / AI** | TensorFlow · PyTorch · ONNX Runtime · OpenCV · XGBoost · LightGBM · TA-Lib · MediaPipe · LLMs |
+| **Backend** | FastAPI · NestJS · Django · Express · Flask · Node.js |
 | **Frontend** | React 19 · Next.js 14 · Electron · Tailwind CSS |
 | **Databases** | PostgreSQL · SQLite · Firebase Realtime Database |
 | **DevOps / Cloud** | Docker · GitHub Actions · Firebase · Alembic |
@@ -24,7 +24,7 @@
 ## Featured Projects — Software Engineering
 
 ### 1. Sistema de Day Trading com IA (Producao)
-**Stack:** Python · PyTorch · LSTM · PPO (RL) · GARCH · MetaTrader 5 · Flask · WebSocket  
+**Stack:** Python · TensorFlow · CNN · PPO (RL) · GARCH · XGBoost · LightGBM · TA-Lib · MetaTrader 5  
 **Repo:** Private (core proprietary) — `Gerson201/IA-para-Mercado-Financeiro`  
 **Status:** Production-grade, under active use
 
@@ -106,13 +106,13 @@ End-to-end IoT system for beehive monitoring:
 ---
 
 ### 7. GWR Intelligence Suite — AI Agents
-**Stack:** TypeScript · Gemini AI · Playwright · Node.js  
+**Stack:** TypeScript · Express · Gemini AI · Playwright · Google Analytics API · SQLite · JWT · Docker  
 **Repos:** Private — `gwr-tracking-intelligence` / `gwr-marketing-intelligence`  
 **Status:** Production for client
 
 Two production AI agent systems:
-- **Tracking Intelligence**: Automated audit of analytics tracking on landing pages via Playwright + Gemini AI + PDF reports
-- **Marketing Intelligence**: Multi-agent marketing campaign analysis and correction using Gemini models
+- **Tracking Intelligence**: Express API + Playwright headless automation to audit GTM/GA4/pixel events on real pages. Gemini analyzes results and generates PDF diagnostic reports. Auth via JWT, rate-limiting, helmet.
+- **Marketing Intelligence**: Multi-agent Gemini system connected to Google Analytics API for campaign performance analysis and automated copy/targeting recommendations.
 
 ---
 
@@ -140,4 +140,4 @@ Two production AI agent systems:
 
 - **Private repos**: Code access available under NDA for serious opportunities. Architecture documents and test coverage reports can be shared on request.
 - **Public demo**: [github.com/Gerson201](https://github.com/Gerson201)
-- **Contact**: [LinkedIn](https://linkedin.com/in/gerson-santos-dev) · [GitHub](https://github.com/Gerson201)
+- **Contact**: [LinkedIn](https://linkedin.com/in/gerson-santos-14a94b24b) · [GitHub](https://github.com/Gerson201)

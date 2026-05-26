@@ -4,12 +4,12 @@ import { getFeaturedProjects } from "@/lib/content";
 import ProjectCard from "@/components/ProjectCard";
 
 const SKILLS = [
-  { category: "Languages", items: ["Python", "TypeScript", "C++"] },
-  { category: "ML / AI", items: ["PyTorch", "ONNX", "OpenCV", "LLMs", "MediaPipe"] },
-  { category: "Backend", items: ["FastAPI", "NestJS", "Django", "Flask"] },
-  { category: "Frontend", items: ["React 19", "Next.js", "Electron"] },
-  { category: "Data / DB", items: ["PostgreSQL", "Firebase", "SQLite", "Prisma"] },
-  { category: "DevOps", items: ["Docker", "GitHub Actions", "Turborepo"] },
+  { category: "Languages", items: ["Python", "TypeScript", "C++", "JavaScript"] },
+  { category: "ML / AI", items: ["TensorFlow", "PyTorch", "ONNX", "OpenCV", "XGBoost", "TA-Lib", "MediaPipe"] },
+  { category: "Backend", items: ["FastAPI", "NestJS", "Django", "Express", "Flask"] },
+  { category: "Frontend", items: ["React", "Next.js", "Electron", "MUI", "Vite"] },
+  { category: "Data / DB", items: ["PostgreSQL", "SQLite", "SQLAlchemy", "Prisma", "Firebase"] },
+  { category: "DevOps", items: ["Docker", "GitHub Actions", "Playwright", "Turborepo"] },
 ];
 
 export default function HomePage() {
@@ -51,7 +51,7 @@ export default function HomePage() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/gerson-santos-dev"
+              href="https://linkedin.com/in/gerson-santos-14a94b24b"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-fg transition hover:border-accent"

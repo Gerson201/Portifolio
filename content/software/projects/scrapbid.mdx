@@ -4,7 +4,7 @@ date: "2026-03-10"
 area: "software"
 type: "project"
 tags: ["electron", "desktop", "licitacoes", "erp", "scraping", "fastapi", "react", "b2b"]
-stack: ["Electron", "React", "TypeScript", "FastAPI", "SQLite", "Alembic", "Python", "Vite", "Docker"]
+stack: ["Electron", "React", "TypeScript", "Vite", "Zustand", "FastAPI", "SQLAlchemy", "SQLite", "Alembic", "Playwright", "Python", "Docker"]
 status: "private-core"
 featured: true
 image: "/images/Home/Engenharia de Software.jpeg"
@@ -30,7 +30,8 @@ A aplicacao e um **app desktop** (Electron + React) com backend local (FastAPI +
 - API REST com **FastAPI** para logica de negocio, scraping e integracao.
 - **SQLite** como banco de dados local, com migrations gerenciadas pelo **Alembic**.
 - Scrapers para o **Portal Nacional de Contratacoes Publicas (PNCP)** — coleta automatica de editais e precos de referencia.
-- Modulo de scraping para o sistema **SAP da Copasa** via Selenium.
+- Modulo de scraping para o sistema **SAP da Copasa** via **Playwright** (automacao headless).
+- **OCR integrado** com pytesseract + pdf2image para extracao de dados de documentos PDF.
 
 ### Integracao ERP
 - Sincronizacao bidirecional com **Bling ERP** via API oficial.
