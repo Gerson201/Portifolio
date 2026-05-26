@@ -37,3 +37,6 @@ yarn-error.log*
 # Python scripts (build helpers, not source)
 scripts/__pycache__/
 scripts/*.pyc
+
+# Claude Code project settings
+.claude/
