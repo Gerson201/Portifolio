@@ -37,7 +37,7 @@ const SKILLS_GROUPS = [
     title: "Machine Learning & IA",
     items: [
       "TensorFlow", "PyTorch", "ONNX Runtime", "Scikit-learn",
-      "XGBoost", "LightGBM", "TA-Lib", "CNN", "LSTM", "Transformers",
+      "XGBoost", "LightGBM", "CNN", "LSTM", "Transformers",
       "Reinforcement Learning", "MediaPipe", "OpenCV", "SegFormer",
     ],
   },

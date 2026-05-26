@@ -1,143 +1,114 @@
-# Gerson Santos — Curated Projects for Recruiters
+# Gerson Santos — Projetos Selecionados para Recrutadores
 
-**Software Engineer · ML Engineer · IoT Systems**
+**Engenheiro de Software · Engenheiro de ML · Sistemas IoT**
 
-> This document highlights the most relevant projects for Software Engineering, AI/ML, and Full Stack roles.
-> Private repositories are documented with technical depth but code access requires NDA agreement.
+> Este documento destaca os projetos mais relevantes para vagas de Engenharia de Software, IA/ML e Full Stack.
+> Repositórios privados são documentados com profundidade técnica; acesso ao código requer acordo de NDA.
 
 ---
 
-## Core Skills
+## Competências Principais
 
-| Category | Technologies |
-|----------|-------------|
-| **Languages** | Python · TypeScript · C++ |
-| **ML / AI** | TensorFlow · PyTorch · ONNX Runtime · OpenCV · XGBoost · LightGBM · TA-Lib · MediaPipe · LLMs |
+| Categoria | Tecnologias |
+|-----------|-------------|
+| **Linguagens** | Python · TypeScript · C++ |
+| **IA & ML** | TensorFlow · PyTorch · ONNX Runtime · OpenCV · XGBoost · LightGBM · MediaPipe · LLMs |
 | **Backend** | FastAPI · NestJS · Django · Express · Flask · Node.js |
-| **Frontend** | React 19 · Next.js 14 · Electron · Tailwind CSS |
-| **Databases** | PostgreSQL · SQLite · Firebase Realtime Database |
-| **DevOps / Cloud** | Docker · GitHub Actions · Firebase · Alembic |
-| **Architectures** | Clean Architecture · Monorepo (Turborepo) · Multi-Tenant SaaS · Edge Computing |
+| **Frontend** | React 19 · Next.js · Electron · Tailwind CSS |
+| **Banco de Dados** | PostgreSQL · SQLite · Firebase Realtime Database |
+| **DevOps / Cloud** | Docker · GitHub Actions · AWS · Alembic |
+| **Arquiteturas** | Clean Architecture · Monorepo (Turborepo) · SaaS Multi-Tenant · Edge Computing |
 
 ---
 
-## Featured Projects — Software Engineering
+## Projetos em Destaque — Engenharia de Software
 
-### 1. Sistema de Day Trading com IA (Producao)
-**Stack:** Python · TensorFlow · CNN · PPO (RL) · GARCH · XGBoost · LightGBM · TA-Lib · MetaTrader 5  
-**Repo:** Private (core proprietary) — `Gerson201/IA-para-Mercado-Financeiro`  
-**Status:** Production-grade, under active use
-
-Algorithmic trading system built on **Clean Architecture (4 layers)** with 86+ modules. Implements:
-- LSTM with Self-Attention for price prediction (95.5% test coverage)
-- Hybrid GARCH + LSTM for volatility forecasting (97.56% test coverage)
-- Reinforcement Learning agent (PPO) trained for 1M timesteps
-- Dynamic risk management: Kelly Criterion + ATR-based position sizing
-- Circuit breakers, drawdown monitoring, real-time WebSocket dashboard
-
-**Why it matters for recruiters:** Demonstrates production ML engineering, not just notebooks. 93–97% test coverage per module. Equivalent to institutional-grade quant systems.
-
----
-
-### 2. Deteccao de Quedas e HAR em Edge (Vision AI)
+### 1. Detecção de Quedas e HAR em Edge (Visão Computacional)
 **Stack:** Python · ONNX Runtime · OpenCV · MediaPipe · EfficientNet · TCN · Docker  
-**Repo:** Private — `Gerson201/Sistema_deteccao_de_atividades` / `Sistema_deteccao_atividade_Raspberry`  
-**Status:** Working prototype, edge-deployable
+**Repositório:** Privado — `Gerson201/Sistema_deteccao_de_atividades` / `Sistema_deteccao_atividade_Raspberry`  
+**Status:** Protótipo funcional, pronto para deploy em edge
 
-Real-time Computer Vision system for fall detection and Human Activity Recognition:
-- Dual-architecture: TCN (keypoint sequences) + EfficientNet + MediaPipe (hybrid visual+pose)
-- Multi-object tracking with Re-Identification across occlusion
-- Full ONNX pipeline — runs on Raspberry Pi, Jetson Nano (CPU/GPU/NPU)
-- 15–30 FPS on edge hardware
-
----
-
-### 3. Plataforma SaaS Multi-Tenant E-commerce
-**Stack:** NestJS · Next.js 14 · PostgreSQL · Prisma · TypeScript · Turborepo · JWT · Docker  
-**Repo:** Private — `Gerson201/SaaS`  
-**Status:** MVP complete
-
-Full-stack SaaS with complete multi-tenancy:
-- Monorepo (Turborepo + pnpm) with shared packages
-- RBAC (3 levels), JWT refresh tokens, per-tenant data isolation
-- Visual drag-and-drop page builder (`@dnd-kit`)
-- 4 payment gateways: Pagar.me, Stripe, Mercado Pago, Asaas
-- 18+ architecture documents
+Sistema de Visão Computacional em tempo real para detecção de quedas e reconhecimento de atividades humanas (HAR):
+- Arquitetura dupla: TCN (sequências de keypoints) + EfficientNet + MediaPipe (visual + pose)
+- Rastreamento multi-objeto com re-identificação em cenários de oclusão
+- Pipeline ONNX completo — roda em Raspberry Pi e Jetson Nano (CPU/GPU/NPU)
+- 15–30 FPS em hardware embarcado
 
 ---
 
-### 4. ScrapBid — Plataforma Desktop B2B/B2G
+### 2. Plataforma SaaS Multi-Tenant E-commerce
+**Stack:** NestJS · Next.js · PostgreSQL · Prisma · TypeScript · Turborepo · JWT · Docker  
+**Repositório:** Privado — `Gerson201/SaaS`  
+**Status:** MVP completo
+
+SaaS full-stack com multi-tenancy completo:
+- Monorepo (Turborepo + pnpm) com pacotes compartilhados
+- RBAC (3 níveis), JWT refresh tokens, isolamento de dados por tenant
+- Construtor de páginas visual com drag-and-drop (`@dnd-kit`)
+- 4 gateways de pagamento: Pagar.me, Stripe, Mercado Pago, Asaas
+- 18+ documentos de arquitetura
+
+---
+
+### 3. ScrapBid — Plataforma Desktop B2B/B2G
 **Stack:** Electron · React · TypeScript · FastAPI · SQLite · Alembic · Python  
-**Repo:** Private — `Gerson201/scrapbid`  
-**Status:** Production, used by engineering firm
+**Repositório:** Privado — `Gerson201/scrapbid`  
+**Status:** Produção, em uso por empresa de engenharia
 
-Desktop all-in-one for B2B companies in public procurement (licitacoes):
-- Automated PNCP portal scraping for public contract data
-- Bid calculator with margin + tax simulation
-- ERP Bling bidirectional sync via official API
-- Works offline — local SQLite + FastAPI backend
+Desktop all-in-one para empresas B2B em licitações públicas:
+- Scraping automatizado do portal PNCP para coleta de editais
+- Calculadora de lances com simulação de margem e impostos
+- Sincronização bidirecional com ERP Bling via API oficial
+- Operação offline — SQLite local + backend FastAPI
 
 ---
 
-### 5. MCP Context Hub — AI Developer Tool
+### 4. MCP Context Hub — Ferramenta para Desenvolvedores com IA
 **Stack:** TypeScript · Node.js · Model Context Protocol · ripgrep · Git  
-**Repo:** Private — `Gerson201/mcp-context-hub`  
-**Status:** In use daily
+**Repositório:** Privado — `Gerson201/mcp-context-hub`  
+**Status:** Em uso diário
 
-Local MCP server exposing code search, documentation reading, and Git history tools to LLM agents (Claude, Cursor):
-- Zero data leakage: 100% local, secret/env exclusion by glob
-- ripgrep-backed text search (10x faster than grep fallback)
-- Windows installer (.exe) bundled with Node.js — no dev environment required
-- Compatible with any MCP client
-
----
-
-### 6. Sistema ColmeIA — IoT Monitoring Platform
-**Stack:** React 19 · Django 5.2 · Firebase · Chart.js · ESP32 · Python  
-**Repo:** **Public** — [github.com/Gerson201/Sistema-ColmeIA](https://github.com/Gerson201/Sistema-ColmeIA)  
-**Status:** Public demo
-
-End-to-end IoT system for beehive monitoring:
-- ESP32 firmware (temperature, humidity, weight, sound sensors) + solar power
-- Firebase Realtime Database for sensor streaming + FCM push alerts
-- Django REST API + React 19 dashboard with live Chart.js graphs
-- Smart alert rules: critical temperature, weight anomalies, humidity thresholds
+Servidor MCP local que expõe busca de código, leitura de documentação e histórico Git para agentes LLM (Claude, Cursor):
+- Zero vazamento de dados: 100% local, exclusão de secrets/env por glob
+- Busca por texto com ripgrep (10× mais rápido que fallback grep)
+- Instalador Windows (.exe) com Node.js embutido — sem necessidade de ambiente de desenvolvimento
+- Compatível com qualquer cliente MCP
 
 ---
 
-### 7. GWR Intelligence Suite — AI Agents
+### 5. Intelligence Suite — Agentes de IA para Marketing e Analytics
 **Stack:** TypeScript · Express · Gemini AI · Playwright · Google Analytics API · SQLite · JWT · Docker  
-**Repos:** Private — `gwr-tracking-intelligence` / `gwr-marketing-intelligence`  
-**Status:** Production for client
+**Repositório:** Privado  
+**Status:** Produção
 
-Two production AI agent systems:
-- **Tracking Intelligence**: Express API + Playwright headless automation to audit GTM/GA4/pixel events on real pages. Gemini analyzes results and generates PDF diagnostic reports. Auth via JWT, rate-limiting, helmet.
-- **Marketing Intelligence**: Multi-agent Gemini system connected to Google Analytics API for campaign performance analysis and automated copy/targeting recommendations.
-
----
-
-## Open Source Contributions / Forks Used in Production
-
-| Repo | Purpose |
-|------|---------|
-| `doclingChucnking` | Document chunking pipeline for GenAI/RAG workflows |
-| `segformer` | SegFormer (semantic segmentation) used in CV research |
+Dois sistemas de agentes de IA em produção:
+- **Tracking Intelligence**: API Express + automação headless com Playwright para auditar eventos GTM/GA4/pixels em páginas reais. Gemini analisa resultados e gera relatórios PDF com diagnóstico. Auth via JWT, rate-limiting, helmet.
+- **Marketing Intelligence**: Sistema Gemini multi-agente integrado à Google Analytics API para análise de performance de campanhas e recomendações automatizadas de copy e segmentação.
 
 ---
 
-## Education
+## Contribuições Open Source
 
-| Degree | Institution | Expected Completion |
-|--------|-------------|---------------------|
-| B.Eng. Software Engineering | — | July 2027 |
-| M.Sc. Computational Modeling | — | December 2026 |
-| Post-grad. Data Science | — | July 2026 |
-| B.Eng. Electrical Engineering | — | Completed |
+| Repositório | Finalidade |
+|-------------|-----------|
+| `doclingChucnking` | Pipeline de chunking de documentos para fluxos GenAI/RAG |
+| `segformer` | SegFormer (segmentação semântica) usado em pesquisa de Visão Computacional |
 
 ---
 
-## Notes for Recruiters
+## Formação
 
-- **Private repos**: Code access available under NDA for serious opportunities. Architecture documents and test coverage reports can be shared on request.
-- **Public demo**: [github.com/Gerson201](https://github.com/Gerson201)
-- **Contact**: [LinkedIn](https://linkedin.com/in/gerson-santos-14a94b24b) · [GitHub](https://github.com/Gerson201)
+| Grau | Conclusão |
+|------|-----------|
+| B.Eng. Engenharia de Software | Julho/2027 |
+| M.Sc. Modelagem Computacional | Dezembro/2026 |
+| Pós-grad. Ciência de Dados | Julho/2026 |
+| B.Eng. Engenharia Elétrica | Concluído |
+
+---
+
+## Notas para Recrutadores
+
+- **Repositórios privados**: Acesso ao código disponível sob NDA para oportunidades sérias. Documentos de arquitetura e relatórios de cobertura de testes podem ser compartilhados mediante solicitação.
+- **Perfil público**: [github.com/Gerson201](https://github.com/Gerson201)
+- **Contato**: [LinkedIn](https://linkedin.com/in/gerson-santos-14a94b24b) · [GitHub](https://github.com/Gerson201)
