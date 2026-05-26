@@ -101,10 +101,10 @@ export default function AboutPage() {
             cloud, dispositivos edge (Raspberry Pi, Jetson Nano) ou aplicações desktop.
           </p>
           <p className="mt-4 text-sm text-muted leading-relaxed">
-            Tenho experiência em sistemas de visão computacional em tempo real, pipelines de
-            trading algorítmico com Deep Learning e RL, plataformas SaaS multi-tenant e
-            ferramentas para desenvolvimento assistido por IA (MCP servers). Priorizo
-            arquitetura limpa, cobertura de testes e documentação técnica.
+            Tenho experiência em sistemas de visão computacional em tempo real, automação de
+            processos, plataformas SaaS multi-tenant e ferramentas para desenvolvimento
+            assistido por IA (MCP servers). Priorizo arquitetura limpa, cobertura de testes
+            e documentação técnica.
           </p>
         </div>
       </section>

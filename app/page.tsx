@@ -4,11 +4,11 @@ import { getFeaturedProjects } from "@/lib/content";
 import ProjectCard from "@/components/ProjectCard";
 
 const SOFTWARE_SKILLS = [
-  { category: "Languages", items: ["Python", "TypeScript", "C++", "JavaScript"] },
-  { category: "ML / AI", items: ["TensorFlow", "OpenCV", "XGBoost", "MediaPipe", "ONNX"] },
+  { category: "Linguagens", items: ["Python", "TypeScript", "C++", "JavaScript"] },
+  { category: "IA & ML", items: ["TensorFlow", "OpenCV", "XGBoost", "MediaPipe", "ONNX"] },
   { category: "Backend", items: ["FastAPI", "NestJS", "Django", "Express"] },
   { category: "Frontend", items: ["React", "Next.js", "Electron", "Angular"] },
-  { category: "Data / DB", items: ["PostgreSQL", "SQLite", "SQLAlchemy", "Prisma"] },
+  { category: "Dados & BD", items: ["PostgreSQL", "SQLite", "SQLAlchemy", "Prisma"] },
   { category: "DevOps", items: ["Docker", "GitHub Actions", "Playwright", "AWS"] },
 ];
 
