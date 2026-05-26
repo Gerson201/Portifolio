@@ -87,6 +87,53 @@ Dois sistemas de agentes de IA em produção:
 
 ---
 
+## Projetos em Destaque — Engenharia Elétrica
+
+### 1. Projetos Elétricos Industriais — Subestações MT/BT, CCM e SPDA
+**Stack:** AutoCAD · ABNT NBR 14039 · IEC 60909 · NR-10/12  
+**Status:** Concluídos — documentos proprietários dos contratantes (NDA)
+
+Portfólio de projetos para plantas industriais de grande porte em MG, BA, GO e MS:
+- Subestações abrigadas e ao tempo — 13,8 kV até 34,5 kV
+- Dimensionamento de transformadores, CCM e bancos de capacitores
+- Estudos de curto-circuito e coordenação de proteção (relés, fusíveis, disjuntores)
+- Aterramento industrial (malha de terra) e SPDA — segmentos têxtil, farmacêutico, petroquímico e logístico
+
+---
+
+### 2. Sistemas Fotovoltaicos — Fazendas, Parques Solares e GD
+**Stack:** AutoCAD · ANEEL REN 1000 · ABNT NBR 16690 · IEC 62109  
+**Status:** Concluídos — documentos proprietários dos contratantes (NDA)
+
+Projetos fotovoltaicos on-grid de pequeno a grande porte:
+- String sizing, inversores, QDC solar, estruturas e cabos DC
+- Proteção CC/CA: DPS, fusíveis de string, disjuntores
+- Aterramento e proteção contra sobretensões (IEC 61643 / ABNT NBR 5419)
+- Documentação completa para homologação junto à distribuidora (CEMIG / ENERGISA)
+
+---
+
+### 3. Projetos Elétricos para Hotelaria — BT Completo (MG/BA)
+**Stack:** AutoCAD · ABNT NBR 5410 · ABNT NBR 10898 · NR-10  
+**Status:** Concluídos — documentos proprietários dos contratantes (NDA)
+
+Projetos BT completos para empreendimentos hoteleiros de médio e grande porte:
+- QGBT e quadros de distribuição por pavimento
+- Iluminação de emergência e sinalização de rotas de fuga (NBR 10898)
+- Previsão de UPS para áreas críticas e ATS para gerador
+- Atendimento simultâneo a concessionária, ANVISA e Corpo de Bombeiros
+
+---
+
+## Registro Profissional
+
+| | |
+|---|---|
+| **CREA/MG** | Habilitado para emissão de ART em projetos BT/MT, SPDA e laudos técnicos |
+| **Normas dominadas** | ABNT NBR 5410, 5419, 14039, 16690 · IEC 60909, 61643, 62109 · NR-10/12 · ANEEL REN 1000 |
+
+---
+
 ## Contribuições Open Source
 
 | Repositório | Finalidade |
