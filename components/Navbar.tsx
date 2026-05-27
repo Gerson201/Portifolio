@@ -7,7 +7,8 @@ import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV_LINKS = [
-  { href: "/software/projetos", label: "Projetos" },
+  { href: "/software/projetos", label: "Projetos de Software" },
+  { href: "/eletrica/projetos", label: "Projetos Elétricos" },
   { href: "/blog", label: "Artigos" },
   { href: "/about", label: "Sobre" },
   { href: "/contact", label: "Contato" },
