@@ -1,11 +1,8 @@
 import SectionHeader from "@/components/SectionHeader";
-import PostList from "@/components/PostList";
 import ArticleGallery from "@/components/ArticleGallery";
-import { getAllPosts } from "@/lib/content";
 import { getArticles } from "@/lib/articles";
 
 export default function BlogPage() {
-  const posts = getAllPosts();
   const articles = getArticles();
 
   return (
@@ -14,12 +11,11 @@ export default function BlogPage() {
         title="Artigos"
         subtitle="Publicações técnicas e estudos aplicados em engenharia e IA."
       />
-      {articles.length > 0 && (
-        <div className="mb-12">
-          <ArticleGallery items={articles} />
-        </div>
+      {articles.length > 0 ? (
+        <ArticleGallery items={articles} />
+      ) : (
+        <p className="text-sm text-muted">Nenhum artigo disponível.</p>
       )}
-      <PostList items={posts} />
     </div>
   );
 }

@@ -30,7 +30,7 @@ export function getArticles(): Article[] {
       .readdirSync(dir)
       .filter((file) => file.toLowerCase().endsWith(".png"))
       .sort()
-      .map((file) => `/Artigos/images/${slug}/${file}`);
+      .map((file) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Artigos/images/${slug}/${file}`);
 
     return {
       slug,

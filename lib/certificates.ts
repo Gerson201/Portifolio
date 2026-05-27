@@ -23,6 +23,6 @@ export function getCertificates(): Certificate[] {
     .sort()
     .map((file) => ({
       title: titleFromFile(file),
-      image: `/Certificados/images/${file}`,
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Certificados/images/${file}`,
     }));
 }
