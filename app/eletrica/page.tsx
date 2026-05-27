@@ -30,9 +30,9 @@ export default function EletricaPage() {
           title="Casos (sanitizados)"
           subtitle="Projetos de cliente com dados sanitizados e governança de privacidade."
         />
-        <div className="card p-6 text-sm text-muted">
-          Todos os cases listados seguem política de sanitização e não expõem IPs sensíveis. Detalhes completos
-          podem ser compartilhados sob NDA conforme a estratégia “Demonstração Pública + Núcleo Privado”.
+        <div className=”card p-6 text-sm text-muted”>
+          Todos os projetos listados seguem política de privacidade dos clientes e não expõem dados sensíveis.
+          Detalhes adicionais e documentação completa estão disponíveis para discussão mediante contato direto.
         </div>
       </section>
 
