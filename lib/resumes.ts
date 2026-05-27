@@ -17,29 +17,21 @@ function getFirstFile(dir: string) {
 }
 
 export function getResumeSoftware(): ResumeInfo | null {
-  const dir = path.join(
-    process.cwd(),
-    "public",
-    "Curriculo Engenharia de Software"
-  );
+  const dir = path.join(process.cwd(), "public", "curriculo-software");
   const file = getFirstFile(dir);
   if (!file) return null;
   return {
     title: "Currículo — Engenharia de Software",
-    file: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Curriculo Engenharia de Software/${file}`,
+    file: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/curriculo-software/${file}`,
   };
 }
 
 export function getResumeEletrica(): ResumeInfo | null {
-  const dir = path.join(
-    process.cwd(),
-    "public",
-    "Curriculo Engenharia Elétrica"
-  );
+  const dir = path.join(process.cwd(), "public", "curriculo-eletrica");
   const file = getFirstFile(dir);
   if (!file) return null;
   return {
     title: "Currículo — Engenharia Elétrica",
-    file: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Curriculo Engenharia Elétrica/${file}`,
+    file: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/curriculo-eletrica/${file}`,
   };
 }

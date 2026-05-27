@@ -20,9 +20,11 @@ export default function ResumeCard({ title, file }: ResumeCardProps) {
         <a
           href={file}
           download
-          className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-xs font-semibold text-fg transition hover:border-accent"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center rounded-full bg-accent px-4 py-2 text-xs font-semibold text-slate-950 transition hover:opacity-90"
         >
-          Baixar currículo
+          Baixar PDF
         </a>
       </div>
     </div>
