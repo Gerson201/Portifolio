@@ -64,8 +64,8 @@ export default async function EletricaProjectDetailPage({
           )}
         </div>
 
-        {frontmatter.status === “private-core” && (
-          <div className=”mt-6 rounded-xl border border-border bg-base/70 p-4 text-sm text-muted”>
+        {frontmatter.status === "private-core" && (
+          <div className="mt-6 rounded-xl border border-border bg-base/70 p-4 text-sm text-muted">
             Projeto desenvolvido para cliente. O código-fonte e detalhes internos são confidenciais.
             A documentação e demonstração pública apresentadas aqui foram autorizadas pelo cliente.
           </div>
