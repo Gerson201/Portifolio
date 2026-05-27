@@ -27,8 +27,8 @@ export default function EletricaPage() {
 
       <section className="mt-16">
         <SectionHeader
-          title="Casos (sanitizados)"
-          subtitle="Projetos de cliente com dados sanitizados e governança de privacidade."
+          title="Casos de Clientes"
+          subtitle="Projetos desenvolvidos para clientes com documentação e escopo técnico disponíveis."
         />
         <div className="card p-6 text-sm text-muted">
           Todos os projetos listados seguem política de privacidade dos clientes e não expõem dados sensíveis.

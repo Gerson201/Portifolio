@@ -54,7 +54,7 @@ function statusToLabel(status: ProjectFrontmatter["status"]) {
     case "private-core":
       return "Núcleo Privado";
     case "client-sanitized":
-      return "Caso de Cliente (sanitizado)";
+      return "Caso de Cliente";
     default:
       return status;
   }
