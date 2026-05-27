@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import SectionHeader from "@/components/SectionHeader";
 import ProjectGrid from "@/components/ProjectGrid";
 import { getProjectsByArea } from "@/lib/content";
@@ -5,6 +6,12 @@ import ResumeCard from "@/components/ResumeCard";
 import { getResumeSoftware } from "@/lib/resumes";
 import DiagramGallery from "@/components/DiagramGallery";
 import { getPlantumlDiagrams } from "@/lib/plantuml";
+
+export const metadata: Metadata = {
+  title: "Projetos de Software | Gerson Santos",
+  description:
+    "Projetos de software de Gerson Santos — IA aplicada, visão computacional, SaaS multi-tenant, servidores MCP e automação de processos. Código e demonstrações disponíveis.",
+};
 
 export default function SoftwareProjectsPage() {
   const projects = getProjectsByArea("software");

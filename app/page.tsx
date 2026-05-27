@@ -39,9 +39,9 @@ export default function HomePage() {
             Gerson Santos
           </h1>
           <p className="mt-5 max-w-2xl text-base text-muted leading-relaxed">
-            Engenheiro com dupla formação em Software e Elétrica, especializado em
-            sistemas de IA aplicada, Visão Computacional e proteção de sistemas elétricos.
-            Levo modelos de ML do experimento à produção e projetos elétricos do estudo à implementação.
+            Dupla formação em Engenharia de Software e Elétrica. Construo IA que roda em campo:
+            detecção de quedas em tempo real em Jetson Nano, subestações industriais até 34,5 kV
+            e plataformas SaaS em produção — tudo com projeto executivo completo.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

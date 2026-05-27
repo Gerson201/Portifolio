@@ -20,7 +20,7 @@ const display = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Gerson Santos | Portfólio",
   description:
-    "Portfólio de Engenharia de Software, Ciência de Dados, ML/Visão Computacional e Engenharia Elétrica.",
+    "Gerson Santos — Engenheiro com dupla formação em Software e Elétrica. IA aplicada, visão computacional, subestações industriais e sistemas fotovoltaicos. Projetos em produção.",
 };
 
 export default function RootLayout({

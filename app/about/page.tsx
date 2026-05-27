@@ -6,7 +6,7 @@ import { getCertificates } from "@/lib/certificates";
 export const metadata: Metadata = {
   title: "Sobre | Gerson Santos",
   description:
-    "Engenheiro de Software, ML Engineer e IoT. Formação em Engenharia de Software, Mestrado em Modelagem Computacional e Pós em Ciência de Dados.",
+    "Gerson Santos — Engenheiro com dupla formação em Software e Elétrica. Mestrado em Modelagem Computacional, Pós em Ciência de Dados. Projetos reais entregues em ambas as áreas.",
 };
 
 const EDUCATION = [
@@ -96,15 +96,25 @@ export default function AboutPage() {
         />
         <div className="card p-8 max-w-3xl">
           <p className="text-sm text-muted leading-relaxed">
-            Trabalho na interseção entre Engenharia de Software, Machine Learning e sistemas
-            embarcados. Meu foco é levar modelos de ML do experimento à produção — seja em
-            cloud, dispositivos edge (Raspberry Pi, Jetson Nano) ou aplicações desktop.
+            Comecei na Engenharia Elétrica aplicada — projetos executivos de subestações
+            industriais, SPDA, coordenação de proteção e sistemas fotovoltaicos entregues
+            para clientes reais. Essa experiência me deu uma perspectiva rara: entender onde
+            o projeto técnico falha na prática, e o que seria necessário para automatizar
+            partes do ciclo de engenharia.
           </p>
           <p className="mt-4 text-sm text-muted leading-relaxed">
-            Tenho experiência em sistemas de visão computacional em tempo real, automação de
-            processos, plataformas SaaS multi-tenant e ferramentas para desenvolvimento
-            assistido por IA (MCP servers). Priorizo arquitetura limpa, cobertura de testes
-            e documentação técnica.
+            Durante os projetos elétricos, percebi que as ferramentas existentes eram genéricas,
+            lentas ou caras demais para pequenas e médias empresas de engenharia. Decidi aprender
+            a construir as minhas. A Engenharia de Software me deu a base — e o Mestrado em
+            Modelagem Computacional e a Pós em Ciência de Dados foram os caminhos naturais para
+            combinar domínio elétrico com IA aplicada.
+          </p>
+          <p className="mt-4 text-sm text-muted leading-relaxed">
+            Hoje trabalho na interseção dessas duas formações: construo sistemas de visão
+            computacional, pipelines de ML para produção e ferramentas que entendem o contexto
+            técnico de engenharia. A dupla formação não é uma divisão — é a razão pela qual
+            consigo entregar desde um projeto de subestação a um agente de IA para análise
+            de campanhas digitais.
           </p>
         </div>
       </section>
