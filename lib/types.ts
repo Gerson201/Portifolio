@@ -4,6 +4,7 @@ export type ProjectFrontmatter = {
   title: string;
   date: string;
   area: Area;
+  areas?: Area[];
   type: "project";
   tags: string[];
   stack: string[];

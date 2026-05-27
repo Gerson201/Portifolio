@@ -1,64 +1,90 @@
 ---
-title: "Site Institucional e Sistema de Gestao — Empresa de Engenharia"
+title: "Sistema de Gestao e Site Institucional — RGA Engenharia"
 date: "2026-01-15"
 area: "software"
+areas: ["software", "eletrica"]
 type: "project"
-tags: ["site-institucional", "sistema-gestao", "bling", "api", "django", "angular", "aws", "cliente"]
-stack: ["Django", "Angular", "AWS", "PostgreSQL", "Bling API", "Docker", "REST API"]
+tags: ["sistema-gestao", "ecommerce", "bling", "django", "angular", "aws", "cliente"]
+stack: ["Django 5.2", "Angular 20", "DRF", "PostgreSQL", "Bling API", "AWS", "Docker"]
 status: "client-sanitized"
 featured: true
+demo: "https://www.rgaengenharia.com/"
 image: "/images/Home/engenharia_eletrica.jpg"
-summary: "Site institucional e sistema de gestão empresarial para empresa de engenharia com 15+ anos de mercado — Django + Angular + AWS com integração ao ERP Bling e sincronização automática de produtos. Automatizou orçamentação e gestão de ordens de serviço, eliminando planilhas manuais do processo."
+summary: "Plataforma empresarial completa para RGA Engenharia — Django 5.2 + Angular 20 com integracao ERP Bling, sincronizacao de 725 produtos WEG, e-commerce B2B com checkout seguro (OTP + criptografia de PII) e sete modulos internos cobrindo autenticacao, CRM, e-commerce, integracoes e gestao. Em producao na AWS."
 ---
 
-## Visão Geral
+## Visao Geral
 
-Conjunto de soluções desenvolvidas para empresa lider em automação industrial, engenharia elétrica e mecanica, com atuação regional consolidada.
+Solucao digital completa desenvolvida para a **RGA Engenharia** — empresa especializada em automacao industrial, engenharia eletrica e mecanica — que combina presenca institucional publica com plataforma interna de gestao empresarial integrada ao ERP Bling.
 
-O projeto inclui dois entregaveis principais: o **site institucional** em produção e o **Sistema de Gestao (SGA)** — plataforma interna de gestao empresarial integrada ao ERP Bling.
+O sistema esta em producao em **AWS Lightsail** com 725 produtos WEG sincronizados e suporte a e-commerce B2B.
+
+## Arquitetura
+
+### Backend — Django 5.2 + DRF
+
+- **Autenticacao**: Token DRF + sessao Django com registro por verificacao de e-mail e reenvio.
+- **Seguranca**: Rate limiting por escopo (auth, CEP, operacoes criticas), CORS, CSP headers e validador de senha forte.
+- **Criptografia de PII**: Campos sensiveis (CPF, CNPJ, e-mail, telefone) criptografados com Fernet AES-128-CBC + HMAC-SHA256 via `django-fernet-fields` — vazamento de backup nao expoe dados de clientes.
+- **Multi-banco**: Separacao de contextos com SQLite/PostgreSQL por dominio de negocio — cada area opera com seu proprio banco de dados.
+- **Proxy CEP**: Endpoint interno que consulta ViaCEP para evitar CORS no frontend, com throttle configurado.
+
+### Frontend — Angular 20+
+
+- Interceptor HTTP global para autenticacao automatica em todas as requisicoes protegidas.
+- `AuthSessionService` com persistencia segura em `localStorage`.
+- Notificacoes em tempo real (toasts) para feedback de operacoes.
+- Utilitario proprio para parsing de erros DRF aninhados.
+
+### Modulos do Sistema
+
+O backend esta organizado em sete modulos independentes:
+
+| Modulo | Responsabilidade |
+|---|---|
+| `authentication` | Identidade, registro, login, verificacao de e-mail, controle de acesso por roles |
+| `core` | Infraestrutura compartilhada, proxy CEP, utilitarios de validacao |
+| `ecommerce` | Catalogo, carrinho, checkout, pedidos, area do cliente |
+| `integrations` | Bling OAuth 2.0, sincronizacao WEG, Asaas (pagamentos) |
+| `management` | Operacoes internas e controle de estoque |
+| `crm` | Gestao de relacionamento e historico de clientes |
+| `blog` | Conteudo tecnico e SEO |
+
+### Integracao ERP — Bling
+
+- **OAuth 2.0** completo com renovacao automatica de tokens.
+- **Sincronizacao WEG**: 725 produtos importados com precos calculados (margem 35% + custo operacional 15%).
+- **Notas Fiscais**: Emissao automatica integrada.
+- **Cache e Retry**: Reducao de chamadas a API com backoff exponencial via `tenacity`.
+
+### E-commerce B2B
+
+Fluxo de checkout em tres etapas: cotacao → verificacao OTP → confirmacao de pagamento.
+
+- Carrinho com snapshot de abandono no servidor para recuperacao.
+- Token OTP baseado em HMAC com limite de tentativas para confirmacao de pedidos.
+- PII mascarada nas respostas da API; sem armazenamento de dados de cartao.
+- Integracao com **Asaas** (PIX, boleto PJ, cartao) — boleto restrito a CNPJ valido.
+- Area do cliente para historico de pedidos e carrinho salvo com guarda de rota dedicada.
+
+### Infraestrutura AWS
+
+- **AWS Lightsail** para servidor de producao com custo controlado.
+- **AWS Cognito** para autenticacao federada e gerenciamento de identidade.
+- Preparado para expansao com **Lambda** (serverless) e **S3** (armazenamento de arquivos).
 
 ## Site Institucional
 
-### Objetivo
-Presenca digital profissional para captacao de leads em automação industrial, engenharia elétrica, mecanica e projetos fotovoltaicos.
+A presenca publica da empresa inclui:
 
-### Conteudo
-- Paginas de servicos por area de atuação (Elétrica, Mecanica, Automação Industrial).
-- Cobertura geografica por regiao de atuação.
-- Formulario de contato e orcamento com envio por email.
-- Pagina de blog para conteudo técnico e SEO.
-- Números de credibilidade: 15+ anos, 1800+ projetos, 50+ clientes.
+- Paginas de servicos por area (Eletrica, Mecanica, Automacao Industrial, Fotovoltaico).
+- Cobertura geografica por regiao de atuacao.
+- Formulario de contato e orcamento com envio por e-mail.
+- Blog tecnico para autoridade e SEO.
 
-## Sistema de Gestao (SGA)
+## Decisoes Tecnicas
 
-### Arquitetura
-
-**Backend — Django 5.2 + DRF**
-- API REST com **Django REST Framework** e autenticacao por Token.
-- Rate limiting por escopo (auth, CEP, operações críticas) para seguranca.
-- Proxy de CEP (`/api/core/cep/<8digitos>/`) para evitar CORS no frontend.
-- Multi-banco por dominio de negocio (separação de contextos).
-- Integração com **AWS Cognito** para autenticacao e autorização escalavel.
-
-**Frontend — Angular 20+**
-- SPA moderna com **Angular 20+**, Bootstrap e CSS customizado.
-- Interceptor HTTP global para autenticacao automática em todas as requisicoes.
-- Servico de sessao (`AuthSessionService`) com persistencia local segura.
-- Sistema de notificações em tempo real (toasts) para feedback de operações.
-
-**Integração ERP — Bling**
-- Sincronização de produtos via Bling API.
-- Gestao de pedidos, clientes e estoque refletida no ERP.
-- Webhooks para atualização em tempo real de status de pedidos.
-
-**Infraestrutura AWS**
-- **AWS Cognito** para autenticacao federada.
-- **PostgreSQL** (Amazon RDS) para dados relacionais de produção.
-- Preparado para expansao com **Lambda** (processamento serverless) e **S3** (armazenamento de arquivos).
-
-## Diferenciais do Projeto
-
-- **Escopo completo**: Da vitrine pública ao sistema interno — um fornecedor único para toda a presenca digital.
-- **Integração real com ERP**: Sincronização Bling eliminou retrabalho manual de cadastro de produtos.
-- **Arquitetura escalavel**: Stack Django + Angular + AWS preparada para crescimento.
-- **Seguranca**: Rate limiting, CORS configurado, Cognito para identidade — sem atalhos de seguranca.
+- **Django + Angular em vez de Next.js full-stack**: Separacao clara entre API e SPA permite evoluir cada camada independentemente e reutilizar o backend para integracoes futuras.
+- **Multi-banco por dominio**: Isola contextos de negocio, simplifica backups seletivos e facilita eventuais migracoes de dominios especificos para microservicos.
+- **Fernet para PII**: Criptografia no nivel do campo garante que vazamentos de backup nao expoe dados sensiveis de clientes.
+- **AWS Lightsail**: Custo previsivel para o volume atual com caminho claro de migracao para EC2/ECS se a demanda crescer.

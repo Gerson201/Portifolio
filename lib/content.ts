@@ -73,7 +73,9 @@ export function getAllProjects(): Project[] {
 }
 
 export function getProjectsByArea(area: "software" | "eletrica") {
-  return getAllProjects().filter((project) => project.area === area);
+  return getAllProjects().filter(
+    (project) => project.area === area || project.areas?.includes(area)
+  );
 }
 
 export function getFeaturedProjects() {

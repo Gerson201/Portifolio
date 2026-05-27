@@ -1,62 +1,82 @@
 ---
-title: "Site Institucional — Empresa de Engenharia Elétrica em Produção"
+title: "Site Institucional — GWR Engenharia Eletrica"
 date: "2026-02-20"
 area: "software"
+areas: ["software", "eletrica"]
 type: "project"
 tags: ["site-institucional", "next-js", "seo", "docker", "aws", "engenharia-eletrica", "cliente"]
-stack: ["Next.js", "TypeScript", "TailwindCSS", "Docker", "nginx", "AWS Lightsail"]
+stack: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "Framer Motion", "Docker", "nginx", "AWS Lightsail"]
 status: "client-sanitized"
 featured: true
+demo: "https://gwrengenhariaeletrica.com/"
 image: "/images/Home/engenharia_eletrica.jpg"
-summary: "Site institucional em produção para empresa de engenharia elétrica em Minas Gerais — Next.js SSG com SEO técnico completo e deploy automatizado em AWS Lightsail via Docker + nginx. Otimizado para ranqueamento em projetos elétricos, SPDA e subestações, com carregamento abaixo de 1 segundo."
+summary: "Site institucional em producao para GWR Engenharia Eletrica — Next.js 16 SSG com SEO local para 13+ cidades de MG, structured data JSON-LD, landing page dedicada para trafego pago e pipeline Docker → AWS ECR → Lightsail + nginx. Otimizado para conversao em projetos eletricos, SPDA e subestacoes."
 ---
 
-## Visão Geral
+## Visao Geral
 
-Site institucional desenvolvido e entregue para empresa especializada em projetos elétricos, subestações, SPDA e laudos técnicos em Minas Gerais.
+Site institucional desenvolvido para a **GWR Engenharia Eletrica**, empresa especializada em projetos eletricos, subestacoes, SPDA e laudos tecnicos em Minas Gerais.
 
-O site esta em produção com deploy automatizado em **AWS Lightsail** via Docker.
+Em producao em **AWS Lightsail** com deploy containerizado via Docker + nginx.
 
 ## Requisitos do Cliente
 
-- Presenca digital profissional para captacao de leads em todo o estado de MG.
-- Paginas de servicos com SEO local (Belo Horizonte, Uberlandia, Norte de Minas, Vale do Aco, etc.).
-- Formulario de orcamento integrado.
-- Velocidade e responsividade em dispositivos moveis (maioria do público-alvo).
-- Baixo custo de hospedagem e manutenção.
+- Presenca digital profissional orientada a captacao de leads em todo o estado de MG.
+- Ranqueamento local por cidade para os servicos mais buscados (SPDA, projetos eletricos, subestacoes).
+- Landing page de alta conversao para campanhas de trafego pago, sem interferir no SEO organico.
+- Velocidade e responsividade no mobile (maioria do publico-alvo).
+- Custo de hospedagem baixo e previsivel.
 
 ## Arquitetura e Stack
 
-### Frontend — Next.js + SSG
-- **Next.js** com Static Site Generation (SSG) para máximo desempenho e SEO.
-- **TailwindCSS** para estilizacao responsiva e manutenção simplificada.
-- Paginas otimizadas por regiao de atuação para SEO local.
-- Score Lighthouse acima de 90 em performance, acessibilidade e SEO.
+### Framework — Next.js 16 + SSG
 
-### Infraestrutura — AWS Lightsail + Docker
-- Servidor **AWS Lightsail** (baixo custo para sites institucionais).
-- **Docker** para empacotamento da aplicação e reproducibilidade do ambiente.
-- **nginx** como reverse proxy com HTTPS via certificado SSL/TLS automático.
-- Deploy via script shell com suporte a rollback.
+- **App Router** com Static Site Generation para maximo desempenho e indexacao.
+- **TypeScript** em toda a base de codigo.
+- **Tailwind CSS 4** para estilizacao responsiva mobile-first.
+- **Framer Motion 12** para animacoes de entrada e transicoes de secao.
+- **React Hook Form + Zod** para validacao de formularios de orcamento.
 
-## Paginas e Conteudo
+### SEO Tecnico
 
-- **Home**: Hero com CTA, números de credibilidade (10+ anos, 500+ projetos, 200+ clientes).
-- **Servicos**: Projetos Elétricos, Subestações, SPDA e Aterramento, Eficiencia Energetica, Laudos Técnicos.
-- **Projetos**: Portfolio de obras realizadas com categorias filtraveis.
-- **Regioes**: Paginas dedicadas por regiao de MG para SEO local.
-- **Sobre**: Historia e diferenciais da empresa.
-- **Contato**: Formulario de orcamento + WhatsApp integrado.
+- **Metadata** completa por rota: `title`, `description`, `canonical`, Open Graph e Twitter Cards.
+- **Structured Data JSON-LD** para `LocalBusiness` (NAP, area de atuacao) e `FAQPage` em paginas de servico.
+- **Sitemap** automatico em `/sitemap.xml` e `robots.txt` configurado.
+- **Imagens** otimizadas com Next.js Image (avif/webp, cache de 30 dias).
+- **13+ cidades de MG** com paginas dedicadas `/cidades/[slug]` para SEO local sem canibalizacao.
 
-## Resultados
+### Landing Page para Trafego Pago
 
-- Site em produção e indexado pelo Google.
-- Presenca digital consolidada em todas as principais regioes de MG.
-- Formulario de orcamento funcional com notificação por email.
-- Custo de hospedagem significativamente menor que soluções SaaS (Wix, Squarespace).
+- Rota dedicada com `robots: noindex` para nao competir com paginas organicas.
+- Sem navegacao principal — foco total na conversao.
+- CTA direto para WhatsApp e formulario de orcamento simplificado.
 
-## Decisões Técnicas
+### Paginas de Servico
 
-- **SSG em vez de SSR**: Site de conteudo estatico — SSG entrega melhor performance sem necessidade de servidor Node rodando continuamente.
-- **AWS Lightsail em vez de Vercel**: Controle total do servidor, sem limitacoes de plano gratuito e custo previsivel.
-- **Docker + nginx**: Portabilidade total — o mesmo container roda em qualquer provedor se necessário migrar.
+| Servico | Conteudo |
+|---|---|
+| SPDA | Hub completo: projeto, instalacao, laudo (NBR 5419 + ART) |
+| Projetos Eletricos | Residencial, comercial e industrial (NBR 5410) |
+| Subestacoes | Aereas e abrigadas, AT/MT |
+| Eficiencia Energetica | Diagnostico e adequacao |
+| Laudos Tecnicos | NR-10, SPDA, instalacoes existentes |
+
+### Infraestrutura — Docker + AWS
+
+Pipeline de deploy containerizado:
+
+```
+Build local → Docker image → AWS ECR → AWS Lightsail → nginx (SSL + cache)
+```
+
+- **Dockerfile** multi-stage para imagens enxutas em producao.
+- **nginx** como reverse proxy com HTTPS e cache de assets estaticos.
+- **Script de deploy** com suporte a rollback para versao anterior.
+- **docker-compose** no servidor para orquestracao dos containers.
+
+## Decisoes Tecnicas
+
+- **SSG em vez de SSR**: Conteudo predominantemente estatico — SSG entrega performance maxima e elimina cold starts.
+- **AWS Lightsail em vez de Vercel**: Controle total do servidor, SSL sem limites de dominio e custo mensal fixo previsivel.
+- **Docker em vez de deploy direto**: Portabilidade total — o mesmo container pode migrar para EC2 ou ECS sem reconfigurar o ambiente.
+- **Landing pages com `noindex` separadas**: Isola trafego pago do organico, protegendo o ranqueamento das paginas principais.
