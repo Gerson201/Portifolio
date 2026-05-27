@@ -13,45 +13,45 @@ demo: "https://demo.example.com/har"
 summary: "Plataforma completa para geração e gestão de streams RTMP/HLS com múltiplos inputs (câmeras IP, arquivos, desktop) e transcodificação adaptativa via FFmpeg. Latência de ponta a ponta abaixo de 2 segundos, com API REST para controle de sessões e suporte a até 8 streams simultâneos."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Sistema de **gerenciamento de streams de video RTMP** para operacao com cameras IP e sistemas de vigilancia. Permite criar, monitorar e gerenciar streams de video com conversao automatica para **HLS e DASH**, possibilitando visualizacao em navegadores web e dispositivos moveis.
+Sistema de **gerenciamento de streams de video RTMP** para operação com cameras IP e sistemas de vigilancia. Permite criar, monitorar e gerenciar streams de video com conversao automática para **HLS e DASH**, possibilitando visualização em navegadores web e dispositivos moveis.
 
-Construido com **Clean Architecture**, o sistema separa completamente a logica de negocio da infraestrutura de streaming, facilitando manutencao e extensao.
+Construido com **Clean Architecture**, o sistema separa completamente a lógica de negocio da infraestrutura de streaming, facilitando manutenção e extensao.
 
 ## Arquitetura
 
 ### Backend — FastAPI
 - API REST com **FastAPI** para gerenciamento de streams e cameras.
 - Endpoints para: criar/remover streams, listar cameras ativas, verificar saude do sistema.
-- Persistencia em **SQLite** para configuracoes e metadados de streams.
-- Healthcheck automatico com monitoramento de latencia e status.
+- Persistencia em **SQLite** para configurações e metadados de streams.
+- Healthcheck automático com monitoramento de latencia e status.
 
 ### Streaming — Nginx RTMP
-- Servidor **Nginx** com modulo RTMP para recebimento e redistribuicao de streams.
-- **Transmuxing** automatico: RTMP para HLS (HTTP Live Streaming) e DASH.
-- Suporte a multiplos streams simultaneos com isolamento.
-- Configuracao dinamica de qualidade e bitrate.
+- Servidor **Nginx** com módulo RTMP para recebimento e redistribuicao de streams.
+- **Transmuxing** automático: RTMP para HLS (HTTP Live Streaming) e DASH.
+- Suporte a múltiplos streams simultâneos com isolamento.
+- Configuração dinamica de qualidade e bitrate.
 
 ### Interface Web
-- Painel web em **HTML/CSS/JavaScript** para operacao diaria.
-- Visualizacao ao vivo de streams via player HLS nativo.
+- Painel web em **HTML/CSS/JavaScript** para operação diaria.
+- Visualização ao vivo de streams via player HLS nativo.
 - Gerenciamento de cameras com status em tempo real (online/offline/erro).
 - Interface responsiva para acesso via desktop e mobile.
 
 ### Deploy — Docker
 - **Docker Compose** com servicos isolados: API FastAPI, Nginx RTMP, interface web.
-- Volumes persistentes para configuracoes e gravacoes.
-- Rede interna para comunicacao segura entre servicos.
+- Volumes persistentes para configurações e gravacoes.
+- Rede interna para comunicação segura entre servicos.
 - Deploy em um comando: `docker-compose up -d`.
 
 ## Funcionalidades
 
-- **Geracao de links RTMP seguros**: URLs unicas por camera com token de autenticacao.
+- **Geração de links RTMP seguros**: URLs unicas por camera com token de autenticacao.
 - **Monitoramento de streams**: Status em tempo real, alertas de desconexao.
-- **Conversao HLS/DASH**: Visualizacao em qualquer navegador moderno sem plugins.
-- **API de saude**: Endpoints de healthcheck para integracao com sistemas de monitoramento.
-- **Gravacao opcional**: Armazenamento de streams para revisao posterior.
+- **Conversao HLS/DASH**: Visualização em qualquer navegador moderno sem plugins.
+- **API de saude**: Endpoints de healthcheck para integração com sistemas de monitoramento.
+- **Gravacao opcional**: Armazenamento de streams para revisão posterior.
 
 ## Clean Architecture
 
@@ -63,6 +63,6 @@ Construido com **Clean Architecture**, o sistema separa completamente a logica d
 ## Diferenciais
 
 - **Plug-and-play**: Adicionar uma camera requer apenas a URL RTMP.
-- **Web-native**: Streaming via HLS funciona em qualquer navegador, sem instalacao.
+- **Web-native**: Streaming via HLS funciona em qualquer navegador, sem instalação.
 - **Containerizado**: Deploy completo com Docker Compose.
-- **Clean Architecture**: Codigo organizado e testavel, facil de estender.
+- **Clean Architecture**: Codigo organizado e testavel, fácil de estender.

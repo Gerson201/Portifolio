@@ -13,30 +13,30 @@ demo: "https://demo.example.com/bench"
 summary: "Pipeline de preparação, treinamento, quantização e benchmarking de modelos ML para edge devices (Raspberry Pi 4, Jetson Nano, Coral TPU) com exportação automática para ONNX e TensorFlow Lite. Reduz o ciclo completo de validação — do treinamento ao benchmark de latência em hardware real — de dias para horas."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Pipeline completo para **benchmarking de modelos de Human Activity Recognition (HAR)**, abrangendo desde a preparacao e padronizacao de datasets ate o treinamento, avaliacao e comparacao de diferentes arquiteturas de redes neurais. Desenvolvido como base cientifica para os projetos de deteccao de quedas e atividades.
+Pipeline completo para **benchmarking de modelos de Human Activity Recognition (HAR)**, abrangendo desde a preparacao e padronizacao de datasets ate o treinamento, avaliação e comparação de diferentes arquiteturas de redes neurais. Desenvolvido como base cientifica para os projetos de detecção de quedas e atividades.
 
 ## Datasets Suportados
 
-O pipeline padroniza e processa multiplos datasets de referencia:
+O pipeline padroniza e processa múltiplos datasets de referência:
 
-- **UCF101**: 101 classes de acoes humanas em videos, ~13.000 clips. Benchmark padrao para action recognition.
-- **HMDB51**: 51 classes de movimentos humanos, ~7.000 clips. Foco em acoes do cotidiano.
+- **UCF101**: 101 classes de ações humanas em videos, ~13.000 clips. Benchmark padrão para action recognition.
+- **HMDB51**: 51 classes de movimentos humanos, ~7.000 clips. Foco em ações do cotidiano.
 - **Kinetics**: Dataset de larga escala do DeepMind com centenas de milhares de clips de video.
 
 Cada dataset passa por preprocessamento padronizado para garantir comparabilidade entre experimentos.
 
 ## Pipeline de Preparacao
 
-- **Download automatizado** de datasets com verificacao de integridade.
-- **Extracao de frames** com taxa configuravel (FPS).
+- **Download automatizado** de datasets com verificação de integridade.
+- **Extracao de frames** com taxa configurável (FPS).
 - **Extracao de keypoints** via MediaPipe Pose (33 pontos corporais).
-- **Normalizacao** de resolucao, aspecto e formato de dados.
+- **Normalizacao** de resolução, aspecto e formato de dados.
 - **Split** padronizado em treino/validacao/teste com seed reprodutivel.
 - **Augmentation**: Flip horizontal, rotacao, crop aleatorio, variacao de brilho.
 
-## Treinamento e Avaliacao
+## Treinamento e Avaliação
 
 ### Arquiteturas Avaliadas
 - Redes convolucionais (CNN) para features espaciais.
@@ -44,21 +44,21 @@ Cada dataset passa por preprocessamento padronizado para garantir comparabilidad
 - Arquiteturas hibridas CNN-LSTM.
 - Modelos baseados em pose (keypoints) vs. modelos baseados em pixels.
 
-### Metricas
+### Métricas
 - **Acuracia** (top-1 e top-5) por dataset e por classe.
-- **Matrizes de confusao** detalhadas para analise de erros.
+- **Matrizes de confusao** detalhadas para análise de erros.
 - **Precision, Recall e F1-Score** por classe de atividade.
 - **Latencia de inferencia** em diferentes hardwares (CPU, GPU, edge).
-- **Tamanho do modelo** e requisitos de memoria.
+- **Tamanho do modelo** e requisitos de memória.
 
 ### Validacao
 - **K-Fold Cross Validation** para robustez estatistica.
-- **Scripts de inspecao** para verificacao visual de dados e predicoes.
-- Relatorios automaticos com comparacao entre experimentos.
+- **Scripts de inspecao** para verificação visual de dados e predicoes.
+- Relatórios automáticos com comparação entre experimentos.
 
 ## Diferenciais
 
-- **Reproducibilidade**: Seeds fixos, configuracoes versionadas e logs completos.
-- **Multi-dataset**: Comparacao justa entre datasets com preprocessamento padronizado.
-- **Edge-aware**: Metricas de latencia e tamanho para viabilidade em dispositivos moveis.
-- **Base cientifica**: Fundamenta as decisoes de arquitetura dos projetos de deteccao.
+- **Reproducibilidade**: Seeds fixos, configurações versionadas e logs completos.
+- **Multi-dataset**: Comparação justa entre datasets com preprocessamento padronizado.
+- **Edge-aware**: Métricas de latencia e tamanho para viabilidade em dispositivos moveis.
+- **Base cientifica**: Fundamenta as decisões de arquitetura dos projetos de detecção.

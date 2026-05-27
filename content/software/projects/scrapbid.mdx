@@ -12,65 +12,65 @@ repo: "https://github.com/Gerson201/scrapbid"
 summary: "Plataforma desktop para empresas B2B/B2G que automatiza prospecção de editais, análise de licitações e envio de propostas — substituindo planilhas manuais no processo comercial. Monitora portais governamentais em tempo real com filtros por modalidade, valor e segmento."
 ---
 
-## Visao Geral
+## Visão Geral
 
-O **ScrapBid** nasceu como uma ferramenta de scraping de precos para licitacoes publicas e evoluiu para uma **plataforma integrada de gestao empresarial** voltada a empresas que atuam em vendas B2B/B2G, projetos de engenharia e licitacoes publicas.
+O **ScrapBid** nasceu como uma ferramenta de scraping de precos para licitações públicas e evoluiu para uma **plataforma integrada de gestao empresarial** voltada a empresas que atuam em vendas B2B/B2G, projetos de engenharia e licitações públicas.
 
-A aplicacao e um **app desktop** (Electron + React) com backend local (FastAPI + SQLite), eliminando dependencia de cloud para operacoes senssiveis e garantindo performance mesmo offline.
+A aplicação e um **app desktop** (Electron + React) com backend local (FastAPI + SQLite), eliminando dependencia de cloud para operações senssiveis e garantindo performance mesmo offline.
 
 ## Arquitetura
 
 ### Frontend — Electron + React + TypeScript
 - App desktop multiplataforma com **Electron**, empacotado como instalador nativo.
 - Interface moderna com **React + TypeScript** e build via **Vite**.
-- Comunicacao com o backend via API REST local (localhost).
+- Comunicação com o backend via API REST local (localhost).
 - UX focada em fluxos operacionais reais de empresas de engenharia.
 
 ### Backend — FastAPI + Python
-- API REST com **FastAPI** para logica de negocio, scraping e integracao.
+- API REST com **FastAPI** para lógica de negocio, scraping e integração.
 - **SQLite** como banco de dados local, com migrations gerenciadas pelo **Alembic**.
-- Scrapers para o **Portal Nacional de Contratacoes Publicas (PNCP)** — coleta automatica de editais e precos de referencia.
-- Modulo de scraping para **sistemas de fornecedores** via **Playwright** (automacao headless).
+- Scrapers para o **Portal Nacional de Contratacoes Públicas (PNCP)** — coleta automática de editais e precos de referência.
+- Módulo de scraping para **sistemas de fornecedores** via **Playwright** (automação headless).
 - **OCR integrado** com pytesseract + pdf2image para extracao de dados de documentos PDF.
 
-### Integracao ERP
-- Sincronizacao bidirecional com **Bling ERP** via API oficial.
-- Importacao/exportacao de produtos, pedidos e clientes.
+### Integração ERP
+- Sincronização bidirecional com **Bling ERP** via API oficial.
+- Importação/exportação de produtos, pedidos e clientes.
 - Conciliacao de estoque e preco entre a plataforma e o ERP.
 
 ## Funcionalidades Principais
 
-### Inteligencia de Licitacoes
-- Coleta automatica de editais do PNCP com filtros por categoria e regiao.
-- Analise de precos de referencia do governo para calcular margem de competitividade.
-- Historico de participacoes e resultados por cliente.
-- **Calculadora de lances** com simulacao de margem e imposto.
+### Inteligencia de Licitações
+- Coleta automática de editais do PNCP com filtros por categoria e regiao.
+- Análise de precos de referência do governo para calcular margem de competitividade.
+- Histórico de participacoes e resultados por cliente.
+- **Calculadora de lances** com simulação de margem e imposto.
 
 ### Gestao Comercial B2B
 - CRM simplificado para gestao de clientes e oportunidades.
 - Pipeline de vendas com acompanhamento de propostas.
-- Gerador de orcamentos com PDF automatico.
-- Integracao fiscal para calculo de impostos em projetos de engenharia.
+- Gerador de orcamentos com PDF automático.
+- Integração fiscal para cálculo de impostos em projetos de engenharia.
 
-### Dados e Relatorios
-- Dashboard de desempenho comercial com graficos de conversao.
-- Relatorios de licitacoes ganhas/perdidas com analise de preco.
-- Exportacao para Excel/PDF para prestacao de contas.
+### Dados e Relatórios
+- Dashboard de desempenho comercial com gráficos de conversao.
+- Relatórios de licitações ganhas/perdidas com análise de preco.
+- Exportação para Excel/PDF para prestacao de contas.
 
 ## Diferenciais
 
-- **Desktop-first**: Operacao offline, sem latencia de rede, dados locais seguros.
-- **Especifico para engenharia**: Fluxos adaptados para empresas de projetos e servicos.
-- **Integracao PNCP**: Acesso direto ao banco de licitacoes publicas sem intermediarios.
+- **Desktop-first**: Operação offline, sem latencia de rede, dados locais seguros.
+- **Específico para engenharia**: Fluxos adaptados para empresas de projetos e servicos.
+- **Integração PNCP**: Acesso direto ao banco de licitações públicas sem intermediarios.
 - **Versionamento rigoroso**: Changelog completo desde v0.1.0 com breaking changes documentados.
 
 ## Contexto
 
-Desenvolvido para atender necessidades reais de empresas de engenharia que participam de licitacoes publicas e precisam de inteligencia de precos para elaborar propostas competitivas.
+Desenvolvido para atender necessidades reais de empresas de engenharia que participam de licitações públicas e precisam de inteligencia de precos para elaborar propostas competitivas.
 
-## Decisoes Tecnicas
+## Decisões Técnicas
 
-- **Electron** escolhido para garantir acesso a sistema de arquivos local e operacao offline.
+- **Electron** escolhido para garantir acesso a sistema de arquivos local e operação offline.
 - **SQLite + Alembic** para banco local com migrations controladas — sem dependencia de servidor de banco de dados.
 - **FastAPI** para backend de alta performance com tipagem forte via Pydantic.
-- Separacao clara entre frontend (porta Electron) e backend (FastAPI em processo separado) para facilitar testes e evolucao independente.
+- Separação clara entre frontend (porta Electron) e backend (FastAPI em processo separado) para facilitar testes e evolucao independente.

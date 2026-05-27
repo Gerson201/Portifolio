@@ -11,23 +11,23 @@ image: "/images/Home/engenharia_eletrica.jpg"
 summary: "Site institucional e sistema de gestão empresarial para empresa de engenharia com 15+ anos de mercado — Django + Angular + AWS com integração ao ERP Bling e sincronização automática de produtos. Automatizou orçamentação e gestão de ordens de serviço, eliminando planilhas manuais do processo."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Conjunto de solucoes desenvolvidas para empresa lider em automacao industrial, engenharia eletrica e mecanica, com atuacao regional consolidada.
+Conjunto de soluções desenvolvidas para empresa lider em automação industrial, engenharia elétrica e mecanica, com atuação regional consolidada.
 
-O projeto inclui dois entregaveis principais: o **site institucional** em producao e o **Sistema de Gestao (SGA)** — plataforma interna de gestao empresarial integrada ao ERP Bling.
+O projeto inclui dois entregaveis principais: o **site institucional** em produção e o **Sistema de Gestao (SGA)** — plataforma interna de gestao empresarial integrada ao ERP Bling.
 
 ## Site Institucional
 
 ### Objetivo
-Presenca digital profissional para captacao de leads em automacao industrial, engenharia eletrica, mecanica e projetos fotovoltaicos.
+Presenca digital profissional para captacao de leads em automação industrial, engenharia elétrica, mecanica e projetos fotovoltaicos.
 
 ### Conteudo
-- Paginas de servicos por area de atuacao (Eletrica, Mecanica, Automacao Industrial).
-- Cobertura geografica por regiao de atuacao.
+- Paginas de servicos por area de atuação (Elétrica, Mecanica, Automação Industrial).
+- Cobertura geografica por regiao de atuação.
 - Formulario de contato e orcamento com envio por email.
-- Pagina de blog para conteudo tecnico e SEO.
-- Numeros de credibilidade: 15+ anos, 1800+ projetos, 50+ clientes.
+- Pagina de blog para conteudo técnico e SEO.
+- Números de credibilidade: 15+ anos, 1800+ projetos, 50+ clientes.
 
 ## Sistema de Gestao (SGA)
 
@@ -35,30 +35,30 @@ Presenca digital profissional para captacao de leads em automacao industrial, en
 
 **Backend — Django 5.2 + DRF**
 - API REST com **Django REST Framework** e autenticacao por Token.
-- Rate limiting por escopo (auth, CEP, operacoes criticas) para seguranca.
+- Rate limiting por escopo (auth, CEP, operações críticas) para seguranca.
 - Proxy de CEP (`/api/core/cep/<8digitos>/`) para evitar CORS no frontend.
-- Multi-banco por dominio de negocio (separacao de contextos).
-- Integracao com **AWS Cognito** para autenticacao e autorizacao escalavel.
+- Multi-banco por dominio de negocio (separação de contextos).
+- Integração com **AWS Cognito** para autenticacao e autorização escalavel.
 
 **Frontend — Angular 20+**
 - SPA moderna com **Angular 20+**, Bootstrap e CSS customizado.
-- Interceptor HTTP global para autenticacao automatica em todas as requisicoes.
+- Interceptor HTTP global para autenticacao automática em todas as requisicoes.
 - Servico de sessao (`AuthSessionService`) com persistencia local segura.
-- Sistema de notificacoes em tempo real (toasts) para feedback de operacoes.
+- Sistema de notificações em tempo real (toasts) para feedback de operações.
 
-**Integracao ERP — Bling**
-- Sincronizacao de produtos via Bling API.
+**Integração ERP — Bling**
+- Sincronização de produtos via Bling API.
 - Gestao de pedidos, clientes e estoque refletida no ERP.
-- Webhooks para atualizacao em tempo real de status de pedidos.
+- Webhooks para atualização em tempo real de status de pedidos.
 
 **Infraestrutura AWS**
 - **AWS Cognito** para autenticacao federada.
-- **PostgreSQL** (Amazon RDS) para dados relacionais de producao.
+- **PostgreSQL** (Amazon RDS) para dados relacionais de produção.
 - Preparado para expansao com **Lambda** (processamento serverless) e **S3** (armazenamento de arquivos).
 
 ## Diferenciais do Projeto
 
-- **Escopo completo**: Da vitrine publica ao sistema interno — um fornecedor unico para toda a presenca digital.
-- **Integracao real com ERP**: Sincronizacao Bling eliminou retrabalho manual de cadastro de produtos.
+- **Escopo completo**: Da vitrine pública ao sistema interno — um fornecedor único para toda a presenca digital.
+- **Integração real com ERP**: Sincronização Bling eliminou retrabalho manual de cadastro de produtos.
 - **Arquitetura escalavel**: Stack Django + Angular + AWS preparada para crescimento.
 - **Seguranca**: Rate limiting, CORS configurado, Cognito para identidade — sem atalhos de seguranca.

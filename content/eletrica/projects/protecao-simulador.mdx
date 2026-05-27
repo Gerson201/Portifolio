@@ -1,5 +1,5 @@
 ---
-title: "Simulador de Coordenacao de Protecao"
+title: "Simulador de Coordenação de Proteção"
 date: "2026-01-22"
 area: "eletrica"
 type: "project"
@@ -13,75 +13,75 @@ demo: "https://demo.example.com/protecao"
 summary: "Simulação interativa de coordenação e seletividade de relés e disjuntores com curvas ANSI/IEC ajustáveis em tempo real para sistemas industriais de média e baixa tensão. Gera relatório de seletividade com exportação de curvas time-current para apresentação técnica ao cliente e à concessionária."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Ferramenta de simulacao para **coordenacao e seletividade de dispositivos de protecao** em sistemas eletricos de potencia. Permite engenheiros eletricistas configurar reles e disjuntores, ajustar curvas de atuacao e verificar a coordenacao entre dispositivos em cascata, garantindo que apenas o dispositivo mais proximo da falta atue.
+Ferramenta de simulação para **coordenação e seletividade de dispositivos de proteção** em sistemas elétricos de potência. Permite engenheiros eletricistas configurar relés e disjuntores, ajustar curvas de atuação e verificar a coordenação entre dispositivos em cascata, garantindo que apenas o dispositivo mais próximo da falta atue.
 
 ## Funcionalidades
 
-### Curvas de Protecao
-- Curvas padrao **ANSI** (Extremely Inverse, Very Inverse, Inverse, Moderately Inverse).
-- Curvas padrao **IEC** (Standard Inverse, Very Inverse, Extremely Inverse, Long Time Inverse).
-- **Parametros ajustaveis**: pickup de corrente, dial de tempo, corrente de curto-circuito.
-- Visualizacao interativa com **Plotly** (zoom, pan, hover com valores).
+### Curvas de Proteção
+- Curvas padrão **ANSI** (Extremely Inverse, Very Inverse, Inverse, Moderately Inverse).
+- Curvas padrão **IEC** (Standard Inverse, Very Inverse, Extremely Inverse, Long Time Inverse).
+- **Parâmetros ajustáveis**: pickup de corrente, dial de tempo, corrente de curto-circuito.
+- Visualização interativa com **Plotly** (zoom, pan, hover com valores).
 
-### Coordenacao e Seletividade
-- Sobreposicao de curvas de multiplos dispositivos em um mesmo grafico.
-- Verificacao automatica de **intervalo de coordenacao** (tempo minimo entre atuacoes).
+### Coordenação e Seletividade
+- Sobreposição de curvas de múltiplos dispositivos em um mesmo gráfico.
+- Verificação automática de **intervalo de coordenação** (tempo mínimo entre atuações).
 - Destaque visual de pontos de conflito (falta de seletividade).
-- Calculo de margem de seguranca entre dispositivos adjacentes.
+- Cálculo de margem de seguranca entre dispositivos adjacentes.
 
 ### Dispositivos Suportados
-- **Reles de sobrecorrente** (51/50): temporizado e instantaneo.
+- **Relés de sobrecorrente** (51/50): temporizado e instantaneo.
 - **Disjuntores termicos**: curvas de disparo do fabricante.
-- **Fusiveis**: curvas de fusao e de pre-arco.
+- **Fusíveis**: curvas de fusao e de pre-arco.
 - Possibilidade de importar curvas customizadas.
 
-### Relatorios
-- **Relatorio de seletividade** exportavel com analise ponto a ponto.
+### Relatórios
+- **Relatório de seletividade** exportavel com análise ponto a ponto.
 - Tabela de ajustes recomendados para cada dispositivo.
-- Grafico de coordenacao em alta resolucao para documentacao tecnica.
-- Formato compativel com memoriais de calculo de projetos eletricos.
+- Gráfico de coordenação em alta resolução para documentacao técnica.
+- Formato compatível com memoriais de cálculo de projetos elétricos.
 
 ## Interface
 
-- Graficos interativos com **Plotly**: escala log-log (padrao de protecao), zoom e cursor.
-- Painel lateral para configuracao de dispositivos e parametros.
-- Comparacao lado a lado de diferentes cenarios de ajuste.
-- Importacao/exportacao de configuracoes para reuso.
+- Gráficos interativos com **Plotly**: escala log-log (padrão de proteção), zoom e cursor.
+- Painel lateral para configuração de dispositivos e parâmetros.
+- Comparação lado a lado de diferentes cenários de ajuste.
+- Importação/exportação de configurações para reuso.
 
-## Aplicacoes
+## Aplicações
 
-- Projetos de **instalacoes industriais**: coordenacao entre alimentador, barramento e carga.
-- **Subestacoes**: coordenacao entre reles de entrada e saida.
-- **Retrofit**: verificacao de seletividade ao substituir dispositivos de protecao.
-- **Ensino**: Ferramenta didatica para disciplinas de protecao de sistemas eletricos.
+- Projetos de **instalações industriais**: coordenação entre alimentador, barramento e carga.
+- **Subestações**: coordenação entre relés de entrada e saida.
+- **Retrofit**: verificação de seletividade ao substituir dispositivos de proteção.
+- **Ensino**: Ferramenta didática para disciplinas de proteção de sistemas elétricos.
 
 ## Diferenciais
 
-- **Interativo**: Ajuste parametros e veja o efeito na curva em tempo real.
-- **Normatizado**: Curvas ANSI e IEC conforme padroes internacionais.
-- **Pratico**: Resultado direto para memorial de calculo e documentacao de projeto.
-- **Acessivel**: Nao requer licencas caras de software comercial (ETAP, SKM).
+- **Interativo**: Ajuste parâmetros e veja o efeito na curva em tempo real.
+- **Normatizado**: Curvas ANSI e IEC conforme padrões internacionais.
+- **Prático**: Resultado direto para memorial de cálculo e documentacao de projeto.
+- **Acessível**: Nao requer licenças caras de software comercial (ETAP, SKM).
 
 ## Contexto e Objetivo
 
-Projeto criado para **reduzir o retrabalho na coordenacao de protecao** e acelerar a verificacao de seletividade entre dispositivos em cascata.
+Projeto criado para **reduzir o retrabalho na coordenação de proteção** e acelerar a verificação de seletividade entre dispositivos em cascata.
 
 ## Escopo e Responsabilidade
 
-- Implementacao das curvas ANSI/IEC e logica de coordenacao.
-- Construção do simulador interativo e exportacao de relatorios.
-- Validacao com cenarios tipicos de alimentador, barramento e carga.
+- Implementação das curvas ANSI/IEC e lógica de coordenação.
+- Construção do simulador interativo e exportação de relatórios.
+- Validacao com cenários típicos de alimentador, barramento e carga.
 
-## Decisoes Tecnicas
+## Decisões Técnicas
 
-- **NumPy** para calculo numerico das curvas com boa estabilidade.
-- **Plotly** para visualizacao interativa (zoom, pan, hover).
-- **Pandas** para organizacao de parametros e geracao de relatorios.
+- **NumPy** para cálculo numerico das curvas com boa estabilidade.
+- **Plotly** para visualização interativa (zoom, pan, hover).
+- **Pandas** para organizacao de parâmetros e geração de relatórios.
 
-## Evidencias e Validacao
+## Evidências e Validacao
 
-- Curvas e relatorios exportados para memoriais de calculo.
+- Curvas e relatórios exportados para memoriais de cálculo.
 - Casos de teste com ajustes de pickup/dial.
 - Indicadores quantitativos: **em validacao** (public demo).

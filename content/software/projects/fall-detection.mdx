@@ -13,9 +13,9 @@ demo: "https://demo.example.com/fall"
 summary: "Sistema de visão computacional em tempo real para detecção de quedas e reconhecimento de atividades com MediaPipe + TensorFlow, rodando a 30 fps em Raspberry Pi 4 e Jetson Nano. Acurácia superior a 92% em dataset proprietário, com inferência 100% local sem dependência de nuvem."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Sistema de **visao computacional em tempo real** para deteccao de quedas e reconhecimento de atividades humanas (HAR). Projetado para operacao em dispositivos edge (Raspberry Pi, Jetson Nano), o sistema processa streams de video para identificar situacoes de risco como quedas de idosos, com alertas automaticos e tracking de multiplas pessoas.
+Sistema de **visão computacional em tempo real** para detecção de quedas e reconhecimento de atividades humanas (HAR). Projetado para operação em dispositivos edge (Raspberry Pi, Jetson Nano), o sistema processa streams de video para identificar situacoes de risco como quedas de idosos, com alertas automáticos e tracking de múltiplas pessoas.
 
 ## Arquiteturas HAR em Paralelo
 
@@ -31,37 +31,37 @@ O sistema implementa **duas arquiteturas complementares** que operam em paralelo
 - **MediaPipe Pose** para extracao de 33 keypoints corporais em tempo real.
 - **EfficientNet** como backbone para extracao de features visuais do frame.
 - Fusao de features de pose e features visuais para classificacao hibrida.
-- Maior precisao em cenarios com oclusao parcial.
+- Maior precisao em cenários com oclusao parcial.
 
 ## Tracking e Re-Identificacao
 
 ### Tracking Multi-Objeto
-- Rastreamento simultaneo de multiplas pessoas na cena.
-- Associacao de deteccoes entre frames usando IoU e features de aparencia.
-- Manutencao de identidade mesmo com cruzamento de trajetorias.
+- Rastreamento simultâneo de múltiplas pessoas na cena.
+- Associação de detecções entre frames usando IoU e features de aparencia.
+- Manutenção de identidade mesmo com cruzamento de trajetorias.
 
 ### Re-Identificacao (ReID)
 - Modelo de re-identificacao para recuperar identidade apos oclusao total.
-- Essencial para **eventos criticos**: se uma pessoa cai e sai do campo de visao, o sistema a reconhece ao retornar.
+- Essencial para **eventos críticos**: se uma pessoa cai e sai do campo de visão, o sistema a reconhece ao retornar.
 - Embeddings de aparencia armazenados por pessoa rastreada.
 
 ## Pipeline Modular
 
-O sistema segue **Clean Architecture** com pipeline modular para integracao de modelos ONNX:
+O sistema segue **Clean Architecture** com pipeline modular para integração de modelos ONNX:
 
 - **Ingestao**: Captura de frames via camera, RTSP ou arquivo de video.
-- **Deteccao**: Localizacao de pessoas no frame (YOLO ou similar via ONNX).
+- **Detecção**: Localização de pessoas no frame (YOLO ou similar via ONNX).
 - **Pose**: Extracao de keypoints corporais (MediaPipe).
 - **Classificacao**: Inferencia HAR (TCN ou EfficientNet, ambos via ONNX Runtime).
-- **Tracking**: Associacao e rastreamento entre frames.
-- **Alerta**: Geracao de alertas para quedas detectadas com confianca acima do limiar.
+- **Tracking**: Associação e rastreamento entre frames.
+- **Alerta**: Geração de alertas para quedas detectadas com confianca acima do limiar.
 
 Todos os modelos sao executados via **ONNX Runtime**, permitindo portabilidade entre CPU, GPU e aceleradores edge (NPU, Coral).
 
 ## Diferenciais
 
 - **Edge-first**: Projetado para rodar em Raspberry Pi e Jetson Nano, nao requer cloud.
-- **Duas arquiteturas paralelas**: Redundancia para cenarios criticos de saude.
+- **Duas arquiteturas paralelas**: Redundancia para cenários críticos de saude.
 - **Re-identificacao**: Nao perde a identidade da pessoa mesmo apos oclusao.
 - **ONNX portavel**: Modelos executam em qualquer hardware com ONNX Runtime.
 - **Tempo real**: Processamento a 15-30 FPS dependendo do hardware.

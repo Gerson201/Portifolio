@@ -1,5 +1,5 @@
 ---
-title: "Monitor de Qualidade de Energia Eletrica"
+title: "Monitor de Qualidade de Energia Elétrica"
 date: "2026-01-10"
 area: "eletrica"
 type: "project"
@@ -13,89 +13,89 @@ demo: "https://demo.example.com/qee"
 summary: "Sistema IoT para monitoramento contínuo de qualidade de energia elétrica com medição de harmônicas, flicker e desequilíbrio conforme PRODIST — ESP32 + MQTT + InfluxDB. Gera alertas automáticos e dashboards em Grafana para gestão de ativos elétricos em instalações industriais e comerciais."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Sistema de **monitoramento continuo de qualidade de energia eletrica (QEE)** baseado em IoT, projetado para identificar disturbios eletricos em instalacoes industriais e comerciais. O sistema mede, registra e gera alarmes para indicadores de qualidade conforme os padroes do **PRODIST** (Procedimentos de Distribuicao da ANEEL).
+Sistema de **monitoramento contínuo de qualidade de energia elétrica (QEE)** baseado em IoT, projetado para identificar disturbios elétricos em instalações industriais e comerciais. O sistema mede, registra e gera alarmes para indicadores de qualidade conforme os padrões do **PRODIST** (Procedimentos de Distribuição da ANEEL).
 
-## Parametros Monitorados
+## Parâmetros Monitorados
 
 ### Harmonicas
-- Medicao de **THD** (Total Harmonic Distortion) de tensao e corrente.
+- Medição de **THD** (Total Harmonic Distortion) de tensao e corrente.
 - Decomposicao harmonicas individuais ate a 40a ordem.
-- Comparacao automatica com limites do PRODIST Modulo 8.
+- Comparação automática com limites do PRODIST Módulo 8.
 - Identificacao de fontes de harmonicas predominantes.
 
 ### Flicker (Cintilacao)
-- Calculo de **Pst** (flicker de curta duracao) e **Plt** (flicker de longa duracao).
+- Cálculo de **Pst** (flicker de curta duracao) e **Plt** (flicker de longa duracao).
 - Metodologia conforme IEC 61000-4-15.
-- Deteccao de fontes de flicker (partidas de motores, fornos a arco, soldas).
+- Detecção de fontes de flicker (partidas de motores, fornos a arco, soldas).
 
 ### Desequilibrio
 - Fator de desequilibrio de tensao entre fases (%).
-- Componentes de sequencia positiva, negativa e zero.
+- Componentes de sequência positiva, negativa e zero.
 - Alarme quando desequilibrio excede 2% (limite PRODIST).
 
 ### Outros Indicadores
 - **Variacao de tensao**: afundamentos (sags), elevacoes (swells) e interrupcoes.
-- **Fator de potencia**: monitoramento continuo com alarme de penalizacao.
+- **Fator de potência**: monitoramento contínuo com alarme de penalizacao.
 - **Frequencia**: desvios em relacao a 60 Hz nominal.
 
 ## Arquitetura IoT
 
 ### Hardware — ESP32
-- Microcontrolador **ESP32** com ADC de alta resolucao para aquisicao de sinais.
-- Transformadores de corrente (TC) e transformadores de potencial (TP) para medicao.
-- Amostragem sincronizada das 3 fases para calculo de harmonicas via FFT.
+- Microcontrolador **ESP32** com ADC de alta resolução para aquisicao de sinais.
+- Transformadores de corrente (TC) e transformadores de potencial (TP) para medição.
+- Amostragem sincronizada das 3 fases para cálculo de harmonicas via FFT.
 - Firmware em **C++** otimizado para processamento em tempo real.
 
-### Comunicacao — MQTT
+### Comunicação — MQTT
 - Protocolo **MQTT** para envio de dados do sensor ao servidor.
-- Topicos organizados por instalacao, fase e parametro medido.
-- QoS configuravel para garantia de entrega de dados criticos.
-- Reconexao automatica em caso de perda de conectividade.
+- Topicos organizados por instalação, fase e parâmetro medido.
+- QoS configurável para garantia de entrega de dados críticos.
+- Reconexao automática em caso de perda de conectividade.
 
 ### Armazenamento — InfluxDB
 - Banco de dados de series temporais **InfluxDB** para armazenamento de alta performance.
-- Retencao configuravel por tipo de dado (resolucao alta para recente, agregado para historico).
-- Queries otimizadas para analise de periodos especificos.
+- Retencao configurável por tipo de dado (resolução alta para recente, agregado para histórico).
+- Queries otimizadas para análise de periodos específicos.
 
 ### Dashboards — Grafana
-- Paineis **Grafana** customizados para visualizacao de indicadores de QEE.
-- Graficos em tempo real de forma de onda, espectro harmonico e tendencias.
+- Paineis **Grafana** customizados para visualização de indicadores de QEE.
+- Gráficos em tempo real de forma de onda, espectro harmonico e tendencias.
 - **Alertas configuraveis** por email, Telegram ou webhook.
-- Relatorios periodicos automaticos (diario, semanal, mensal).
+- Relatórios periódicos automáticos (diario, semanal, mensal).
 
 ## Conformidade Normativa
 
-- Medicoes conforme **PRODIST Modulo 8** (Qualidade da Energia Eletrica).
-- Referencia **IEC 61000** para metodologias de medicao.
-- Relatorios no formato aceito por distribuidoras para solicitacao de ressarcimento.
+- Medicoes conforme **PRODIST Módulo 8** (Qualidade da Energia Elétrica).
+- Referência **IEC 61000** para metodologias de medição.
+- Relatórios no formato aceito por distribuidoras para solicitacao de ressarcimento.
 
 ## Diferenciais
 
-- **Custo acessivel**: Hardware baseado em ESP32, fracao do custo de analisadores comerciais.
-- **Monitoramento 24/7**: Registro continuo para deteccao de eventos esporadicos.
-- **Conformidade PRODIST**: Relatorios no formato regulatorio brasileiro.
-- **Alertas proativos**: Notificacoes antes que parametros atinjam limites criticos.
+- **Custo acessível**: Hardware baseado em ESP32, fracao do custo de analisadores comerciais.
+- **Monitoramento 24/7**: Registro contínuo para detecção de eventos esporadicos.
+- **Conformidade PRODIST**: Relatórios no formato regulatorio brasileiro.
+- **Alertas proativos**: Notificações antes que parâmetros atinjam limites críticos.
 
 ## Contexto e Objetivo
 
-Projeto desenvolvido para **monitorar QEE continuamente** e gerar evidencias para tomada de decisao tecnica e regulatoria.
+Projeto desenvolvido para **monitorar QEE continuamente** e gerar evidências para tomada de decisão técnica e regulatoria.
 
 ## Escopo e Responsabilidade
 
 - Projeto do firmware e pipeline de dados.
-- Definicao dos parametros conforme PRODIST/IEC.
+- Definição dos parâmetros conforme PRODIST/IEC.
 - Dashboards e alertas com foco em uso operacional.
 
-## Decisoes Tecnicas
+## Decisões Técnicas
 
 - **ESP32** para custo baixo e processamento local.
 - **MQTT** para telemetria eficiente e resiliente.
-- **InfluxDB + Grafana** para series temporais e visualizacao operacional.
+- **InfluxDB + Grafana** para series temporais e visualização operacional.
 
-## Evidencias e Validacao
+## Evidências e Validacao
 
-- Dashboards em tempo real e historicos (sanitizados).
+- Dashboards em tempo real e históricos (sanitizados).
 - Alarmes parametrizados por limites regulatórios.
 - Indicadores quantitativos: **em validacao** (public demo).

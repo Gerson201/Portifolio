@@ -12,31 +12,31 @@ repo: "https://github.com/Gerson201/mcp-context-hub"
 summary: "Servidor MCP local em TypeScript que expõe ferramentas de contexto de projeto — leitura de arquivos, execução de comandos, consulta a banco de dados — para LLMs via Model Context Protocol. Reduz o tempo de configuração de agentes de IA em novos projetos de horas para minutos."
 ---
 
-## Visao Geral
+## Visão Geral
 
 O **MCP Context Hub** e um servidor [Model Context Protocol (MCP)](https://modelcontextprotocol.io) local que resolve um problema real no desenvolvimento assistido por IA: **agentes como Claude nao tem acesso seguro ao contexto de multiplos projetos simultaneamente**.
 
-O servidor expoe ferramentas que permitem ao agente buscar codigo, ler documentacao e consultar historico Git de repositorios configurados — tudo localmente, sem enviar segredos ou codigo proprietario para servicos externos.
+O servidor expoe ferramentas que permitem ao agente buscar codigo, ler documentacao e consultar histórico Git de repositorios configurados — tudo localmente, sem enviar segredos ou codigo proprietario para servicos externos.
 
 ## Por que isso importa
 
-Ao trabalhar com multiplos repositorios, o agente precisa de contexto de varios projetos para tomar decisoes informadas. As solucoes existentes ou enviam tudo para a nuvem (risco de vazamento) ou limitam o contexto a um repositorio por vez. O MCP Context Hub resolve ambos os problemas.
+Ao trabalhar com múltiplos repositorios, o agente precisa de contexto de varios projetos para tomar decisões informadas. As soluções existentes ou enviam tudo para a nuvem (risco de vazamento) ou limitam o contexto a um repositorio por vez. O MCP Context Hub resolve ambos os problemas.
 
 ## Arquitetura
 
 ### Protocolo — Model Context Protocol
-- Implementa o **MCP** (protocolo aberto da Anthropic para integracao de ferramentas em LLMs).
-- Compativel com **Claude Desktop**, **Claude Code**, **Cursor** e qualquer cliente MCP.
-- Comunicacao via **stdio** (processo local, sem porta de rede exposta).
+- Implementa o **MCP** (protocolo aberto da Anthropic para integração de ferramentas em LLMs).
+- Compatível com **Claude Desktop**, **Claude Code**, **Cursor** e qualquer cliente MCP.
+- Comunicação via **stdio** (processo local, sem porta de rede exposta).
 
 ### Runtime — Node.js + TypeScript
 - Servidor escrito em **TypeScript** com tipos estritos para todas as ferramentas.
-- Build otimizado com saida em `dist/` para distribuicao.
-- **ripgrep** como motor de busca de texto (10x mais rapido que grep nativo), com fallback em Node para ambientes sem rg instalado.
+- Build otimizado com saida em `dist/` para distribuição.
+- **ripgrep** como motor de busca de texto (10x mais rápido que grep nativo), com fallback em Node para ambientes sem rg instalado.
 
 ### Instalador — Windows
 - Empacotado como instalador `.exe` para Windows (sem dependencia de Node instalado).
-- Node.js bundled no proprio instalador para deploy em maquinas sem ambiente de dev.
+- Node.js bundled no próprio instalador para deploy em maquinas sem ambiente de dev.
 - Script de desinstalacao incluso.
 
 ## Ferramentas Expostas ao Agente
@@ -51,12 +51,12 @@ Busca texto ou regex em todos os arquivos dos projetos configurados usando ripgr
 Lista arquivos de um projeto aplicando os filtros de glob — permite ao agente descobrir a estrutura do projeto sem ler cada arquivo.
 
 ### `recent_changes`
-Consulta o historico Git do projeto (commits recentes, arquivos modificados, diffs) para dar ao agente consciencia temporal do que mudou.
+Consulta o histórico Git do projeto (commits recentes, arquivos modificados, diffs) para dar ao agente consciencia temporal do que mudou.
 
 ### `read_docs`
-Le arquivos de documentacao (README, CHANGELOG, ADRs) de forma prioritaria, otimizado para respostas rapidas sobre o projeto.
+Le arquivos de documentacao (README, CHANGELOG, ADRs) de forma prioritaria, otimizado para respostas rápidas sobre o projeto.
 
-## Configuracao
+## Configuração
 
 Projetos sao definidos em `projects.json`:
 
@@ -76,11 +76,11 @@ Os globs de exclusao garantem que **segredos e arquivos sensiveis nunca sejam li
 ## Diferenciais
 
 - **100% local**: Nenhum dado sai da maquina. Codigo proprietario e credenciais ficam seguros.
-- **Multi-projeto**: Contexto de N repositorios simultaneamente, configuravel por workspace.
-- **Zero vazamento de segredos**: Globs de exclusao bloqueiam `.env`, chaves e certificados por padrao.
-- **Distribuicao simplificada**: Instalador `.exe` para Windows — funciona em maquinas sem Node.
+- **Multi-projeto**: Contexto de N repositorios simultaneamente, configurável por workspace.
+- **Zero vazamento de segredos**: Globs de exclusao bloqueiam `.env`, chaves e certificados por padrão.
+- **Distribuição simplificada**: Instalador `.exe` para Windows — funciona em maquinas sem Node.
 - **Compatibilidade ampla**: Qualquer cliente MCP (Claude, Cursor, Windsurf) pode usar.
 
 ## Contexto e Motivacao
 
-Criado para uso proprio durante o desenvolvimento de multiplos projetos em paralelo, onde a necessidade de dar contexto completo ao agente em cada sessao era um gargalo real de produtividade.
+Criado para uso próprio durante o desenvolvimento de múltiplos projetos em paralelo, onde a necessidade de dar contexto completo ao agente em cada sessao era um gargalo real de produtividade.

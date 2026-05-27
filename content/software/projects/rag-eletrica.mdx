@@ -13,16 +13,16 @@ demo: "https://demo.example.com/rag"
 summary: "Sistema RAG offline com 43 módulos de conhecimento em normas elétricas brasileiras (ABNT NBR, PRODIST, ANEEL), rodando 100% local sem chamadas a APIs externas. Responde consultas técnicas com referência à norma e página específica, sem alucinação em dados críticos de engenharia."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Sistema de **Retrieval-Augmented Generation (RAG)** especializado em engenharia eletrica, com capacidade de operacao **totalmente offline**. Permite consultar normas tecnicas, manuais e documentacao via chat com linguagem natural, sempre citando as fontes originais. Com **43 modulos Python**, o sistema abrange indexacao, busca semantica, geracao de respostas e analise automatizada de documentos tecnicos.
+Sistema de **Retrieval-Augmented Generation (RAG)** especializado em engenharia elétrica, com capacidade de operação **totalmente offline**. Permite consultar normas técnicas, manuais e documentacao via chat com linguagem natural, sempre citando as fontes originais. Com **43 módulos Python**, o sistema abrange indexacao, busca semantica, geração de respostas e análise automatizada de documentos técnicos.
 
 ## Arquitetura RAG
 
 ### Indexacao e Embeddings
-- Processamento de documentos em multiplos formatos: **PDF, DOC, DOCX, TXT**.
+- Processamento de documentos em múltiplos formatos: **PDF, DOC, DOCX, TXT**.
 - **OCR com Tesseract** para documentos escaneados ou com imagens de texto.
-- Geracao de embeddings com **Sentence-Transformers** (modelos leves para edge).
+- Geração de embeddings com **Sentence-Transformers** (modelos leves para edge).
 - Chunking inteligente com overlap para manter contexto entre fragmentos.
 
 ### Busca Semantica — FAISS
@@ -30,57 +30,57 @@ Sistema de **Retrieval-Augmented Generation (RAG)** especializado em engenharia 
 - Busca por similaridade cosseno em milhares de chunks em milissegundos.
 - Re-ranking de resultados por relevancia e contexto da pergunta.
 
-### Geracao de Respostas — Ollama
-- LLM local via **Ollama** com modelo **Mistral 7B** para operacao offline.
-- Prompts especializados com **20+ contextos de engenharia eletrica**.
+### Geração de Respostas — Ollama
+- LLM local via **Ollama** com modelo **Mistral 7B** para operação offline.
+- Prompts especializados com **20+ contextos de engenharia elétrica**.
 - Respostas sempre acompanhadas de **citacoes das fontes** (documento, pagina, trecho).
-- Opcao de integracao com modelos online (OpenAI, Anthropic) para maior capacidade.
+- Opcao de integração com modelos online (OpenAI, Anthropic) para maior capacidade.
 
 ## Interface e API
 
 ### API REST — FastAPI
-- Backend **FastAPI** com endpoints para: upload de documentos, consulta, analise e gerenciamento de indices.
-- Documentacao automatica OpenAPI/Swagger.
+- Backend **FastAPI** com endpoints para: upload de documentos, consulta, análise e gerenciamento de índices.
+- Documentacao automática OpenAPI/Swagger.
 - Processamento assincrono de uploads e indexacao.
 
 ### Interface Web — Streamlit
 - **10 paginas** na interface Streamlit para diferentes funcionalidades:
   - Chat com documentos (consulta por linguagem natural).
   - Upload e gerenciamento de documentos.
-  - Analise de relatorios tecnicos.
-  - Analise de projetos eletricos.
-  - Analise de qualidade de codigo.
-  - Configuracoes e status do sistema.
+  - Análise de relatórios técnicos.
+  - Análise de projetos elétricos.
+  - Análise de qualidade de codigo.
+  - Configurações e status do sistema.
 
-## Funcionalidades de Analise
+## Funcionalidades de Análise
 
-### Analise de Relatorios
-- Identificacao automatica de **riscos** e nao-conformidades.
-- Verificacao de **requisitos normativos** (NBR, IEC, ANSI).
-- Destaque de pontos criticos e recomendacoes.
+### Análise de Relatórios
+- Identificacao automática de **riscos** e nao-conformidades.
+- Verificação de **requisitos normativos** (NBR, IEC, ANSI).
+- Destaque de pontos críticos e recomendacoes.
 
-### Analise de Projetos
-- Avaliacao de conformidade com normas tecnicas.
-- Checklist automatico de requisitos obrigatorios.
+### Análise de Projetos
+- Avaliação de conformidade com normas técnicas.
+- Checklist automático de requisitos obrigatorios.
 - Sugestoes de melhoria baseadas na base de conhecimento.
 
 ### Contextos Especializados (20+)
-- Instalacoes eletricas de baixa e media tensao.
-- Sistemas de protecao e coordenacao.
+- Instalações elétricas de baixa e media tensao.
+- Sistemas de proteção e coordenação.
 - Qualidade de energia e harmonicos.
 - SPDA e aterramento.
-- Subestacoes e linhas de transmissao.
+- Subestações e linhas de transmissão.
 - Eficiencia energetica e sustentabilidade.
 
 ## Deploy
 
 - **Docker Compose** com servicos isolados: API, Streamlit, Ollama.
 - Funciona em maquinas sem acesso a internet (ideal para ambientes industriais).
-- Configuracao via variaveis de ambiente para adaptacao a diferentes cenarios.
+- Configuração via variaveis de ambiente para adaptação a diferentes cenários.
 
 ## Diferenciais
 
 - **Offline-first**: Opera sem internet, essencial para ambientes industriais e de campo.
-- **Citacao de fontes**: Toda resposta referencia o documento e trecho original.
-- **Especializado**: Prompts e contextos otimizados para engenharia eletrica, nao generico.
-- **Modular**: 43 modulos com responsabilidades bem definidas, facil de estender.
+- **Citacao de fontes**: Toda resposta referência o documento e trecho original.
+- **Especializado**: Prompts e contextos otimizados para engenharia elétrica, nao genérico.
+- **Modular**: 43 módulos com responsabilidades bem definidas, fácil de estender.

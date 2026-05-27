@@ -1,5 +1,5 @@
 ---
-title: "IoT LoRa Fallback para Subestacoes"
+title: "IoT LoRa Fallback para Subestações"
 date: "2026-01-05"
 area: "eletrica"
 type: "project"
@@ -13,44 +13,44 @@ demo: "https://demo.example.com/lora"
 summary: "Arquitetura de fallback IoT para subestações usando LoRaWAN como canal de contingência quando a conectividade principal (fibra, 4G/5G) fica indisponível. Garante telemetria mínima e alarmes críticos com cobertura de até 15 km em área rural, sem custo de infraestrutura fixa adicional."
 ---
 
-## Visao Geral
+## Visão Geral
 
-Arquitetura de **comunicacao de contingencia** para subestacoes eletricas utilizando **LoRaWAN** como canal de fallback quando o backbone de comunicacao principal (fibra optica, 4G/5G ou satelite) esta indisponivel. O sistema garante que **telemetria minima e alarmes essenciais** continuem sendo transmitidos mesmo em cenarios de perda total de conectividade convencional.
+Arquitetura de **comunicação de contingência** para subestações elétricas utilizando **LoRaWAN** como canal de fallback quando o backbone de comunicação principal (fibra óptica, 4G/5G ou satélite) esta indisponível. O sistema garante que **telemetria mínima e alarmes essenciais** continuem sendo transmitidos mesmo em cenários de perda total de conectividade convencional.
 
 ## Problema
 
-Subestacoes eletricas em areas remotas ou com infraestrutura precaria frequentemente sofrem com:
-- Queda de enlaces de fibra optica por vandalismo ou intemperies.
-- Indisponibilidade de rede celular em areas rurais.
-- Falhas em equipamentos de comunicacao SCADA.
+Subestações elétricas em áreas remotas ou com infraestrutura precária frequentemente sofrem com:
+- Queda de enlaces de fibra óptica por vandalismo ou intempéries.
+- Indisponibilidade de rede celular em áreas rurais.
+- Falhas em equipamentos de comunicação SCADA.
 
-A perda de telemetria pode resultar em **operacao as cegas**, impedindo a deteccao de faltas, sobrecargas e condicoes anormais.
+A perda de telemetria pode resultar em **operação as cegas**, impedindo a detecção de faltas, sobrecargas e condições anormais.
 
-## Solucao
+## Solução
 
-### Canal LoRaWAN de Contingencia
+### Canal LoRaWAN de Contingência
 - **LoRaWAN** como canal independente de longo alcance (ate 15 km em area rural).
-- Operacao em banda ISM (nao licenciada), sem custo de operadora.
-- Consumo ultra-baixo de energia, viabilizando alimentacao por bateria/solar.
-- Ativacao automatica quando o canal principal fica indisponivel.
+- Operação em banda ISM (nao licenciada), sem custo de operadora.
+- Consumo ultra-baixo de energia, viabilizando alimentação por bateria/solar.
+- Ativacao automática quando o canal principal fica indisponível.
 
 ### Telemetria Essencial
-O canal de contingencia transmite um subconjunto critico de dados:
+O canal de contingência transmite um subconjunto crítico de dados:
 - **Tensao e corrente** das fases principais (valores RMS).
 - **Estado de disjuntores** (aberto/fechado).
-- **Alarmes criticos**: sobrecorrente, sobretensao, temperatura elevada.
-- **Nivel de bateria** do sistema de fallback.
+- **Alarmes críticos**: sobrecorrente, sobretensao, temperatura elevada.
+- **Nível de bateria** do sistema de fallback.
 
-### Deteccao de Falha e Comutacao
-- Monitoramento continuo do canal principal (heartbeat/keep-alive).
-- **Comutacao automatica** para LoRaWAN apos timeout configuravel.
-- Retorno automatico ao canal principal quando restabelecido.
-- Log de eventos de comutacao para analise posterior.
+### Detecção de Falha e Comutação
+- Monitoramento contínuo do canal principal (heartbeat/keep-alive).
+- **Comutação automática** para LoRaWAN apos timeout configurável.
+- Retorno automático ao canal principal quando restabelecido.
+- Log de eventos de comutação para análise posterior.
 
 ## Arquitetura
 
 ### Dispositivo de Campo — ESP32 + LoRa
-- Microcontrolador **ESP32** com modulo LoRa integrado.
+- Microcontrolador **ESP32** com módulo LoRa integrado.
 - Firmware em **Embedded C** otimizado para baixo consumo.
 - Sensores de tensao (TC) e corrente (TP) conectados via ADC.
 - Entradas digitais para estado de disjuntores e alarmes.
@@ -58,40 +58,40 @@ O canal de contingencia transmite um subconjunto critico de dados:
 ### Gateway LoRaWAN
 - Gateway LoRaWAN para recebimento de dados dos dispositivos de campo.
 - Encaminhamento para servidor via Ethernet/Wi-Fi/4G.
-- Suporte a multiplos dispositivos simultaneos.
+- Suporte a múltiplos dispositivos simultâneos.
 
 ### Backend — Node-RED + InfluxDB
-- **Node-RED** para orquestracao de fluxos de dados e regras de alarme.
-- **MQTT** como protocolo de comunicacao entre gateway e backend.
+- **Node-RED** para orquestração de fluxos de dados e regras de alarme.
+- **MQTT** como protocolo de comunicação entre gateway e backend.
 - **InfluxDB** para armazenamento de series temporais.
 - Dashboard de monitoramento com status de conectividade.
 
 ## Diferenciais
 
-- **Resiliencia**: Telemetria garantida mesmo com perda total do backbone.
-- **Autonomo**: Comutacao automatica sem intervencao humana.
+- **Resiliência**: Telemetria garantida mesmo com perda total do backbone.
+- **Autônomo**: Comutação automática sem intervencao humana.
 - **Longo alcance**: LoRaWAN cobre ate 15 km sem infraestrutura intermediaria.
-- **Baixo custo**: Hardware acessivel e operacao sem custos de comunicacao.
+- **Baixo custo**: Hardware acessível e operação sem custos de comunicação.
 - **Complementar**: Nao substitui o SCADA, atua como camada de seguranca adicional.
 
 ## Contexto e Objetivo
 
-Projeto criado para **reduzir o tempo sem telemetria** quando o canal principal de comunicacao falha, mantendo dados minimos para operacao segura.
+Projeto criado para **reduzir o tempo sem telemetria** quando o canal principal de comunicação falha, mantendo dados mínimos para operação segura.
 
 ## Escopo e Responsabilidade
 
-- Arquitetura do fallback e definicao de telemetria minima.
-- Firmware do dispositivo e regras de comutacao.
+- Arquitetura do fallback e definição de telemetria mínima.
+- Firmware do dispositivo e regras de comutação.
 - Pipeline de dados para registro e monitoramento.
 
-## Decisoes Tecnicas
+## Decisões Técnicas
 
 - **LoRaWAN** para alcance e independencia de operadoras.
 - **ESP32** para processamento local e baixo consumo.
-- **Node-RED** para orquestracao rapida de eventos e alarmes.
+- **Node-RED** para orquestração rápida de eventos e alarmes.
 
-## Evidencias e Validacao
+## Evidências e Validacao
 
-- Logs de comutacao e testes de perda de conectividade.
+- Logs de comutação e testes de perda de conectividade.
 - Dashboards de status e disponibilidade (sanitizados).
 - Indicadores quantitativos: **em validacao** (public demo).
