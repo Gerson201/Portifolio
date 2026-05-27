@@ -21,23 +21,18 @@ export default function SoftwareProjectsPage() {
   return (
     <div className="container py-16">
       {resume && <ResumeCard title={resume.title} file={resume.file} />}
-      <div className="mb-8 text-sm text-muted">
-        <p>Engenharia de software: Conclusão Julho/2027</p>
-        <p>Mestrado em Modelagem: Conclusão Dezembro/2026</p>
-        <p>Pós- Ciência de Dados Julho/2026</p>
-      </div>
       {diagrams.length > 0 && (
         <div className="mb-12">
           <SectionHeader
-            title="Diagramas de Projetos (PlantUML)"
-            subtitle="Visualização com zoom para leitura clara."
+            title="Diagramas de Arquitetura"
+            subtitle="Diagramas PlantUML dos principais projetos — clique para ampliar."
           />
           <DiagramGallery items={diagrams} />
         </div>
       )}
       <SectionHeader
         title="Projetos de Engenharia de Software"
-        subtitle="Cards com detalhes de cada projeto da trilha de software."
+        subtitle="9 projetos cobrindo IA aplicada, visão computacional, SaaS multi-tenant e automação de processos."
       />
       <ProjectGrid items={projects} />
     </div>

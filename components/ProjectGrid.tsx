@@ -3,7 +3,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 export default function ProjectGrid({ items }: { items: Project[] }) {
   return (
-    <div className="mt-8 grid gap-6 grid-cols-1">
+    <div className="mt-8 grid gap-6 grid-cols-1 md:grid-cols-2">
       {items.map((project) => (
         <ProjectCard key={project.slug} project={project} />
       ))}
