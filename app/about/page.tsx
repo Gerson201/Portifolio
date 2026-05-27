@@ -11,22 +11,33 @@ export const metadata: Metadata = {
 
 const EDUCATION = [
   {
-    degree: "B.Eng. Engenharia de Software",
+    degree: "Bacharelado em Engenharia de Software",
+    institution: "UNIFRAN",
     status: "Em andamento",
     expected: "Conclusão: Julho/2027",
   },
   {
-    degree: "M.Sc. Modelagem Computacional",
+    degree: "Mestrado em Modelagem Computacional",
+    institution: "Unimontes",
     status: "Em andamento",
     expected: "Conclusão: Dezembro/2026",
+    note: "Aguardando Defesa",
   },
   {
-    degree: "Pós-graduação — Ciência de Dados",
+    degree: "Pós-Graduação em Ciência de Dados",
+    institution: "Unimontes",
     status: "Em andamento",
     expected: "Conclusão: Julho/2026",
   },
   {
-    degree: "B.Eng. Engenharia Elétrica",
+    degree: "Bacharelado em Engenharia Elétrica",
+    institution: "Faculdades Santo Agostinho",
+    status: "Concluído",
+    expected: "",
+  },
+  {
+    degree: "Técnico em Eletrotécnica",
+    institution: "FEMC",
     status: "Concluído",
     expected: "",
   },
@@ -123,16 +134,20 @@ export default function AboutPage() {
       <section>
         <SectionHeader
           title="Formação"
-          subtitle="Engenharia de Software, Ciência de Dados e Modelagem Computacional."
+          subtitle="Engenharia de Software, Engenharia Elétrica, Eletrotécnica, Ciência de Dados e Modelagem Computacional."
         />
         <div className="grid gap-3 md:grid-cols-2">
-          {EDUCATION.map(({ degree, status, expected }) => (
+          {EDUCATION.map(({ degree, institution, status, expected, note }) => (
             <div key={degree} className="card p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-display text-sm font-semibold text-fg">{degree}</p>
+                  <p className="mt-0.5 text-xs text-accent">{institution}</p>
                   {expected && (
                     <p className="mt-1 text-xs text-muted">{expected}</p>
+                  )}
+                  {note && (
+                    <p className="mt-1 text-xs text-muted italic">Obs.: {note}</p>
                   )}
                 </div>
                 <span
